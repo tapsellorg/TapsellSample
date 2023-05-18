@@ -4,19 +4,13 @@
 
 Tapsell Mediation, is a Mediated solution helping businesses increase their mobile apps' revenue with the inclusion of other supported Programmatic & Mediated Ad Solutions.
 
-<br/>
-
 ## ADs UI
 
 | Rewarded Video             | Interstitial Banner    | Native Banner | Standard Banner|
 | ----------------- | -------------- | -----------   | -----------     |
-| <img width="300" src="https://github.com/tapsellorg/TapsellSample/assets/38072572/6adbcd92-cf48-4b35-b88c-d9d91d6efeff" />    | <img width="300" src="https://github.com/tapsellorg/TapsellSample/assets/38072572/153d96f0-9a6e-4829-87ff-007c4a9a9ee8" />   | <img width="300" src="https://github.com/tapsellorg/TapsellSample/assets/38072572/41bc113b-a86e-460a-805e-30471e0238e8" /> | <img width="300" src="https://github.com/tapsellorg/TapsellSample/assets/38072572/bda26dd3-14db-4906-b6a0-b24aece13a7a" /> |
-
-
-
+| <img width="300" src="https://github.com/tapsellorg/TapsellSample/assets/38072572/728fa523-5822-44d2-93db-e7184e256fa4" />    | <img width="300" src="https://github.com/tapsellorg/TapsellSample/assets/38072572/181fe3e9-9ffd-4c3c-b1c1-3b5dbecf399d" />   | <img width="300" src="https://github.com/tapsellorg/TapsellSample/assets/38072572/1025cfca-f8f6-4528-819d-1d23109363e3" /> | <img width="300" src="https://github.com/tapsellorg/TapsellSample/assets/38072572/84249840-4103-446d-821f-a7c5481b4f00" /> |
 
 ## Getting Started
----
 
 Integrating the Tapsell SDK into your app is the first step toward displaying ads and earning revenue.
 Once you've integrated the SDK, you can choose an ad format (such as native or rewarded video) and follow the steps to implement it.
