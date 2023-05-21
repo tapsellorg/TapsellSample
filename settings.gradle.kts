@@ -19,3 +19,4 @@ dependencyResolutionManagement {
 rootProject.name = "TapsellSample"
 include(":sample-kotlin")
 include(":sample-java")
+include(":sample-jetpack-compose")

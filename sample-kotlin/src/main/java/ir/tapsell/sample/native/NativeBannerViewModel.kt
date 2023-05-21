@@ -17,34 +17,31 @@ class NativeBannerViewModel : BaseViewModel() {
     var responseId: String? = null
         private set
 
-
     fun requestAd(zoneId: String) {
         Tapsell.requestNativeAd(zoneId, object : RequestResultListener {
             override fun onFailure() {
                 log(TAG, "onFailure", Log.ERROR)
-
             }
 
             override fun onSuccess(adId: String) {
                 responseId = adId
-                log(TAG, "onSuccess: $adId", Log.DEBUG)
+                log(TAG, "onSuccess: $adId")
             }
-
         })
     }
 
-    fun showAd(activity: FragmentActivity, nativeAdViewContainer: NativeAdViewContainer) {
+    fun showAd(activity: FragmentActivity, container: NativeAdViewContainer) {
         if (responseId.isNullOrEmpty()) {
             log(TAG, "adId is empty", Log.ERROR)
             return
         }
         Tapsell.showNativeAd(
             responseId,
-            nativeAdViewContainer,
+            container,
             activity,
             object : AdStateListener.Native {
                 override fun onAdClicked() {
-                    log(TAG, "onAdClicked", Log.DEBUG)
+                    log(TAG, "onAdClicked")
                 }
 
                 override fun onAdFailed(message: String) {
@@ -52,7 +49,7 @@ class NativeBannerViewModel : BaseViewModel() {
                 }
 
                 override fun onAdImpression() {
-                    log(TAG, "onAdImpression", Log.DEBUG)
+                    log(TAG, "onAdImpression")
                 }
             })
     }

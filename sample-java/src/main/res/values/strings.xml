@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tapsell Android Sample</string>
+    <string name="app_name">Tapsell Android Java Sample</string>
     <string name="rewarded_video">Rewarded Video</string>
     <string name="interstitial">Interstitial</string>
     <string name="show">Show</string>
