@@ -7,7 +7,7 @@ import ir.tapsell.mediation.Tapsell
 class HomeViewModel : ViewModel() {
 
     companion object {
-        private const val TAG = "InitializationListener"
+        private const val TAG = "HomeViewModel"
     }
 
     init {

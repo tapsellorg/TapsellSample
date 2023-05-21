@@ -18,7 +18,6 @@ class StandardBannerViewModel : BaseViewModel() {
     var responseId: String? = null
         private set
 
-
     fun requestAd(zoneId: String, bannerSize: BannerSize) {
         Tapsell.requestBannerAd(zoneId, bannerSize, object : RequestResultListener {
             override fun onFailure() {
@@ -27,9 +26,8 @@ class StandardBannerViewModel : BaseViewModel() {
 
             override fun onSuccess(adId: String) {
                 responseId = adId
-                log(TAG, "onSuccess: $adId", Log.DEBUG)
+                log(TAG, "onSuccess: $adId")
             }
-
         })
     }
 
@@ -40,7 +38,7 @@ class StandardBannerViewModel : BaseViewModel() {
         }
         Tapsell.showBannerAd(responseId, container, activity, object : AdStateListener.Banner {
             override fun onAdClicked() {
-                log(TAG, "onAdClicked", Log.DEBUG)
+                log(TAG, "onAdClicked")
             }
 
             override fun onAdFailed(message: String) {
@@ -48,7 +46,7 @@ class StandardBannerViewModel : BaseViewModel() {
             }
 
             override fun onAdImpression() {
-                log(TAG, "onAdImpression", Log.DEBUG)
+                log(TAG, "onAdImpression")
             }
         })
     }
