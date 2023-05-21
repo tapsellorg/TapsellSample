@@ -57,6 +57,6 @@ class NativeBannerFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        Tapsell.destroyNativeAd(viewModel.responseId);
+        Tapsell.destroyNativeAd(viewModel.responseId)
     }
 }

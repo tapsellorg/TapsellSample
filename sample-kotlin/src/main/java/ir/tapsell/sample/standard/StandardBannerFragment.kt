@@ -61,6 +61,6 @@ class StandardBannerFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        Tapsell.destroyBannerAd(viewModel.responseId);
+        Tapsell.destroyBannerAd(viewModel.responseId)
     }
 }

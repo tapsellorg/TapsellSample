@@ -9,5 +9,4 @@ object Constants {
     const val TAPSELL_INTERSTITIAL = "b3972749-f62a-475a-9ff2-cfc9e2a40f87"
 
     const val TAPSELL_STANDARD_BANNER = "e3d5999c-5990-4e31-8ce9-642ce040a7f4"
-
 }
