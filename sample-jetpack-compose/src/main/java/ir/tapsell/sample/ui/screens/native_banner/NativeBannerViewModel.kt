@@ -31,7 +31,6 @@ class NativeBannerViewModel : BaseViewModel() {
         Tapsell.requestNativeAd(Constants.TAPSELL_NATIVE_BANNER, object : RequestResultListener {
             override fun onFailure() {
                 log(TAG, "onFailure", Log.ERROR)
-
             }
 
             override fun onSuccess(adId: String) {
@@ -39,7 +38,6 @@ class NativeBannerViewModel : BaseViewModel() {
                 isShowButtonEnabled = true
                 log(TAG, "onSuccess: $adId")
             }
-
         })
     }
 

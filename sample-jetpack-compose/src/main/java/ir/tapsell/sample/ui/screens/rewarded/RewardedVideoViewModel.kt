@@ -37,7 +37,6 @@ class RewardedVideoViewModel : BaseViewModel() {
                     isShowButtonEnabled = true
                     log(TAG, "onSuccess: $adId")
                 }
-
             })
     }
 

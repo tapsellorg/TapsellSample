@@ -76,5 +76,4 @@ fun InterstitialScreen(
 @Composable
 fun InterstitialScreenPreview() {
     InterstitialScreen()
-
 }

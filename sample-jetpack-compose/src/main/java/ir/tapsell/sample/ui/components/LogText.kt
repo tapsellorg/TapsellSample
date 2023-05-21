@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun LogText(
@@ -24,10 +23,9 @@ fun LogText(
                 .background(MaterialTheme.colorScheme.surface)
                 .padding(4.dp),
             text = text,
-            fontSize = 14.sp,
+            style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Start,
             maxLines = 5
         )
     }
-
 }
