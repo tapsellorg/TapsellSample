@@ -17,4 +17,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "TapsellSample"
-include(":app")
+include(":sample-kotlin")
