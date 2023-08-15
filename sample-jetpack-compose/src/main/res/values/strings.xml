@@ -7,7 +7,6 @@
     <string name="interstitial">Interstitial</string>
     <string name="native_banner">Native Banner</string>
     <string name="standard_banner">Standard Banner</string>
-    <string name="native_banner_in_list">Native Banner List</string>
     <string name="native_video">Native Video</string>
     <string name="vast">Vast</string>
 </resources>

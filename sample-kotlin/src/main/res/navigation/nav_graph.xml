@@ -23,6 +23,7 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_native_banner"
             app:destination="@id/fragment_native_banner" />
+
     </fragment>
 
     <fragment
@@ -48,4 +49,5 @@
         android:name="ir.tapsell.sample.native.NativeBannerFragment"
         android:label="@string/native_banner"
         tools:layout="@layout/fragment_native_banner" />
+
 </navigation>
