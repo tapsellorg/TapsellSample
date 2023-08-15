@@ -38,7 +38,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
 
     private void requestAd() {
 
-        Tapsell.requestRewardedVideoAd(
+        Tapsell.requestRewardedAd(
                 BuildConfig.TAPSELL_REWARDED_VIDEO,
                 new RequestResultListener() {
                     @Override
@@ -58,8 +58,8 @@ public class RewardedVideoActivity extends AppCompatActivity {
     }
 
     private void showAd() {
-        Tapsell.showRewardedVideoAd(responseId, this,
-                new AdStateListener.RewardedVideo() {
+        Tapsell.showRewardedAd(responseId, this,
+                new AdStateListener.Rewarded() {
                     @Override
                     public void onAdClosed(@NonNull AdShowCompletionState adShowCompletionState) {
                         log("onAdClosed", Log.DEBUG);

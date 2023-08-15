@@ -26,7 +26,7 @@ class RewardedVideoViewModel : BaseViewModel() {
     }
 
     fun requestAd() {
-        Tapsell.requestRewardedVideoAd(
+        Tapsell.requestRewardedAd(
             Constants.TAPSELL_REWARDED_VIDEO, object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)
@@ -45,7 +45,7 @@ class RewardedVideoViewModel : BaseViewModel() {
             log(TAG, "adId is empty", Log.ERROR)
             return@launch
         }
-        Tapsell.showRewardedVideoAd(responseId, activity, object : AdStateListener.RewardedVideo {
+        Tapsell.showRewardedAd(responseId, activity, object : AdStateListener.Rewarded {
             override fun onAdClicked() {
                 log(TAG, "onAdClicked")
             }

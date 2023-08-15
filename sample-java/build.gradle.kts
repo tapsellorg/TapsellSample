@@ -52,9 +52,20 @@ android {
         buildConfig = true
     }
 
+    signingConfigs {
+        create("release") {
+            if (project.hasProperty("MYAPP_RELEASE_STORE_FILE")) {
+                keyAlias = project.property("MYAPP_RELEASE_KEY_ALIAS").toString()
+                keyPassword = project.property("MYAPP_RELEASE_KEY_PASSWORD").toString()
+                storeFile = file(project.property("MYAPP_RELEASE_STORE_FILE").toString())
+                storePassword = project.property("MYAPP_RELEASE_STORE_PASSWORD").toString()
+            }
+        }
+    }
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -74,7 +85,7 @@ dependencies {
     implementation(libs.constraintlayout)
 
     implementation(libs.tapsell)
-    implementation(libs.adapter.tapsell)
+    implementation(libs.adapter.legacy)
     implementation(libs.adapter.admob)
     implementation(libs.adapter.unityads)
     implementation(libs.adapter.adcolony)
