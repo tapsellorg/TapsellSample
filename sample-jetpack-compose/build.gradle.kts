@@ -87,7 +87,9 @@ dependencies {
     implementation(libs.adapter.admob)
     implementation(libs.adapter.unityads)
     implementation(libs.adapter.adcolony)
-    // implementation(libs.adapter.mintegral)
+    implementation(libs.adapter.mintegral)
+    implementation(libs.adapter.ironsource)
+    implementation(libs.adapter.liftoff)
     // implementation(libs.adapter.chartboost)
     // implementation(libs.adapter.wortise)
 

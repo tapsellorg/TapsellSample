@@ -1,18 +1,18 @@
 [versions]
-agp = "8.1.0"
+agp = "8.1.1"
 kotlin = "1.9.0"
-core-ktx = "1.10.1"
+core-ktx = "1.12.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 appcompat = "1.6.1"
 material = "1.9.0"
 constraintlayout = "2.1.4"
-navigation-fragment-ktx = "2.6.0"
-tapsell = "1.0.0-beta07"
-lifecycle-livedata-ktx = "2.6.1"
-lifecycle-viewmodel-ktx = "2.6.1"
-lifecycle-runtime-ktx = "2.6.1"
+navigation-fragment-ktx = "2.7.2"
+tapsell = "1.0.0-beta08"
+lifecycle-livedata-ktx = "2.6.2"
+lifecycle-viewmodel-ktx = "2.6.2"
+lifecycle-runtime-ktx = "2.6.2"
 activity-compose = "1.7.2"
 compose-bom = "2023.08.00"
 coil = "2.4.0"
@@ -36,6 +36,8 @@ adapter-admob = { module = "ir.tapsell.mediation.adapter:admob", version.ref = "
 adapter-unityads = { module = "ir.tapsell.mediation.adapter:unityads", version.ref = "tapsell" }
 adapter-mintegral = { module = "ir.tapsell.mediation.adapter:mintegral", version.ref = "tapsell" }
 adapter-adcolony = { module = "ir.tapsell.mediation.adapter:adcolony", version.ref = "tapsell" }
+adapter-ironsource = { module = "ir.tapsell.mediation.adapter:ironsource", version.ref = "tapsell" }
+adapter-liftoff = { module = "ir.tapsell.mediation.adapter:liftoff", version.ref = "tapsell" }
 adapter-chartboost = { module = "ir.tapsell.mediation.adapter:chartboost", version.ref = "tapsell" }
 adapter-wortise = { module = "ir.tapsell.mediation.adapter:wortise", version.ref = "tapsell" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
