@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "ir.tapsell.sample"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ir.tapsell.sample"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

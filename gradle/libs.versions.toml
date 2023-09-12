@@ -14,7 +14,7 @@ lifecycle-livedata-ktx = "2.6.2"
 lifecycle-viewmodel-ktx = "2.6.2"
 lifecycle-runtime-ktx = "2.6.2"
 activity-compose = "1.7.2"
-compose-bom = "2023.08.00"
+compose-bom = "2023.09.00"
 coil = "2.4.0"
 
 [libraries]
@@ -36,6 +36,7 @@ adapter-admob = { module = "ir.tapsell.mediation.adapter:admob", version.ref = "
 adapter-unityads = { module = "ir.tapsell.mediation.adapter:unityads", version.ref = "tapsell" }
 adapter-mintegral = { module = "ir.tapsell.mediation.adapter:mintegral", version.ref = "tapsell" }
 adapter-adcolony = { module = "ir.tapsell.mediation.adapter:adcolony", version.ref = "tapsell" }
+adapter-applovin = { module = "ir.tapsell.mediation.adapter:applovin", version.ref = "tapsell" }
 adapter-ironsource = { module = "ir.tapsell.mediation.adapter:ironsource", version.ref = "tapsell" }
 adapter-liftoff = { module = "ir.tapsell.mediation.adapter:liftoff", version.ref = "tapsell" }
 adapter-chartboost = { module = "ir.tapsell.mediation.adapter:chartboost", version.ref = "tapsell" }

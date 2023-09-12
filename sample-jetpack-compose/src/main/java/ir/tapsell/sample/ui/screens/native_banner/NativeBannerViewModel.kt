@@ -10,7 +10,6 @@ import ir.tapsell.mediation.ad.AdStateListener
 import ir.tapsell.mediation.ad.request.RequestResultListener
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.base.BaseViewModel
-import ir.tapsell.sample.ui.screens.standard.StandardBannerViewModel
 import ir.tapsell.sample.utils.Constants
 
 
@@ -27,18 +26,20 @@ class NativeBannerViewModel : BaseViewModel() {
         private const val TAG = "NativeBannerViewModel"
     }
 
-    fun requestAd() {
-        Tapsell.requestNativeAd(Constants.TAPSELL_NATIVE_BANNER, object : RequestResultListener {
-            override fun onFailure() {
-                log(TAG, "onFailure", Log.ERROR)
-            }
+    fun requestAd(activity: Activity) {
+        Tapsell.requestNativeAd(
+            Constants.TAPSELL_NATIVE_BANNER, activity,
+            object : RequestResultListener {
+                override fun onFailure() {
+                    log(TAG, "onFailure", Log.ERROR)
+                }
 
-            override fun onSuccess(adId: String) {
-                responseId = adId
-                isShowButtonEnabled = true
-                log(TAG, "onSuccess: $adId")
-            }
-        })
+                override fun onSuccess(adId: String) {
+                    responseId = adId
+                    isShowButtonEnabled = true
+                    log(TAG, "onSuccess: $adId")
+                }
+            })
     }
 
     fun showAd(activity: Activity) {

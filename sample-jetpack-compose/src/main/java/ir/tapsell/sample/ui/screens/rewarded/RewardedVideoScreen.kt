@@ -53,7 +53,7 @@ fun RewardedVideoScreen(
             Button(
                 modifier = Modifier
                     .fillMaxWidth(),
-                onClick = viewModel::requestAd
+                onClick = { viewModel.requestAd(context) }
             ) {
                 Text(text = stringResource(R.string.request))
             }

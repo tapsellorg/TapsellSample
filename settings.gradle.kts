@@ -7,7 +7,7 @@ pluginManagement {
         maven("https://cboost.jfrog.io/artifactory/chartboost-mediation")
         maven("https://maven.wortise.com/artifactory/public")
         maven("https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea")
-        maven("https://android-sdk.is.com" )
+        maven("https://android-sdk.is.com")
     }
 }
 dependencyResolutionManagement {
@@ -16,6 +16,10 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         mavenLocal()
+        maven("https://cboost.jfrog.io/artifactory/chartboost-mediation")
+        maven("https://maven.wortise.com/artifactory/public")
+        maven("https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea")
+        maven("https://android-sdk.is.com")
     }
 }
 
