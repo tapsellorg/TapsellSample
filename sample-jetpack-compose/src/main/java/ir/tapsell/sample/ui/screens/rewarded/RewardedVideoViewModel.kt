@@ -25,9 +25,9 @@ class RewardedVideoViewModel : BaseViewModel() {
         private const val TAG = "RewardedVideoViewModel"
     }
 
-    fun requestAd() {
+    fun requestAd(activity: Activity) {
         Tapsell.requestRewardedAd(
-            Constants.TAPSELL_REWARDED_VIDEO, object : RequestResultListener {
+            Constants.TAPSELL_REWARDED_VIDEO, activity, object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)
                 }

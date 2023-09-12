@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "ir.tapsell.sample"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ir.tapsell.sample"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -80,7 +80,8 @@ dependencies {
     implementation(libs.adapter.admob)
     implementation(libs.adapter.unityads)
     implementation(libs.adapter.adcolony)
-    //implementation(libs.adapter.mintegral)
+    implementation(libs.adapter.ironsource)
+    implementation(libs.adapter.liftoff)
     // implementation(libs.adapter.chartboost)
     // implementation(libs.adapter.wortise)
 

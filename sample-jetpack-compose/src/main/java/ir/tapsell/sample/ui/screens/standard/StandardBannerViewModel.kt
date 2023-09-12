@@ -28,10 +28,9 @@ class StandardBannerViewModel : BaseViewModel() {
         private const val TAG = "StandardBannerViewModel"
     }
 
-    fun requestAd() {
+    fun requestAd(activity: Activity) {
         Tapsell.requestBannerAd(
-            Constants.TAPSELL_STANDARD_BANNER,
-            bannerSize,
+            Constants.TAPSELL_STANDARD_BANNER, bannerSize, activity,
             object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)
