@@ -30,8 +30,7 @@ class StandardBannerViewModel : BaseViewModel() {
 
     fun requestAd(activity: Activity) {
         Tapsell.requestBannerAd(
-            Constants.TAPSELL_STANDARD_BANNER, activity,
-            /*bannerSize,*/
+            Constants.TAPSELL_STANDARD_BANNER, bannerSize, activity,
             object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)
