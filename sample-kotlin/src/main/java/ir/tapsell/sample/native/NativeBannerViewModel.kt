@@ -17,8 +17,8 @@ class NativeBannerViewModel : BaseViewModel() {
     var responseId: String? = null
         private set
 
-    fun requestAd(zoneId: String) {
-        Tapsell.requestNativeAd(zoneId, object : RequestResultListener {
+    fun requestAd(zoneId: String, activity: FragmentActivity) {
+        Tapsell.requestNativeAd(zoneId, activity, object : RequestResultListener {
             override fun onFailure() {
                 log(TAG, "onFailure", Log.ERROR)
             }

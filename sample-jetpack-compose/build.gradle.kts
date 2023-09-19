@@ -50,6 +50,14 @@ android {
             )
         }
     }
+    splits {
+        abi {
+            isEnable = true
+            isUniversalApk = true
+            reset()
+            include("x86", "x86_64", "armeabi-v7a", "arm64-v8a")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

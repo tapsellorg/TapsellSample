@@ -38,6 +38,7 @@ public class InterstitialActivity extends AppCompatActivity {
     private void requestAd() {
         Tapsell.requestInterstitialAd(
                 BuildConfig.TAPSELL_INTERSTITIAL,
+                this,
                 new RequestResultListener() {
                     @Override
                     public void onSuccess(@NonNull String adId) {
