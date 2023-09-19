@@ -40,6 +40,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
 
         Tapsell.requestRewardedAd(
                 BuildConfig.TAPSELL_REWARDED_VIDEO,
+                this,
                 new RequestResultListener() {
                     @Override
                     public void onSuccess(@NonNull String adId) {

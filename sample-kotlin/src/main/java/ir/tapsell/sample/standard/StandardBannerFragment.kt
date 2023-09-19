@@ -49,7 +49,8 @@ class StandardBannerFragment : Fragment() {
     private fun requestAd() {
         viewModel.requestAd(
             Constants.TAPSELL_STANDARD_BANNER,
-            BannerSize.BANNER_320_50
+            BannerSize.BANNER_320_50,
+            requireActivity()
         )
     }
 

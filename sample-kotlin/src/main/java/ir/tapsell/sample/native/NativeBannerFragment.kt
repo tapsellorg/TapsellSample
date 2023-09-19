@@ -46,7 +46,7 @@ class NativeBannerFragment : Fragment() {
     }
 
     private fun requestAd() {
-        viewModel.requestAd(Constants.TAPSELL_NATIVE_BANNER)
+        viewModel.requestAd(Constants.TAPSELL_NATIVE_BANNER, requireActivity())
     }
 
     private fun showAd() = NativeAdViewContainer(requireContext()).let {
