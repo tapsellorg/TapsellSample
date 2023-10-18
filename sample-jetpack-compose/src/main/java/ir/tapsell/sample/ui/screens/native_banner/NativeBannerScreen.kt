@@ -62,7 +62,7 @@ fun NativeBannerScreen(
 
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { viewModel.requestAd(context) }
+                onClick = (viewModel::requestAd)
             ) {
                 Text(text = stringResource(R.string.request))
             }

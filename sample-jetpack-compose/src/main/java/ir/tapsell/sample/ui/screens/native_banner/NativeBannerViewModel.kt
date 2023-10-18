@@ -26,9 +26,9 @@ class NativeBannerViewModel : BaseViewModel() {
         private const val TAG = "NativeBannerViewModel"
     }
 
-    fun requestAd(activity: Activity) {
+    fun requestAd() {
         Tapsell.requestNativeAd(
-            Constants.TAPSELL_NATIVE_BANNER, activity,
+            Constants.TAPSELL_NATIVE_BANNER,
             object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)

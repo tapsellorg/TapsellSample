@@ -29,20 +29,22 @@ class HomeFragment : Fragment() {
 
         val navController = findNavController()
 
+        viewModel.setUserConsent(requireActivity(), true)
+
         binding.btnRewardedVideo.setOnClickListener {
             navController.navigate(R.id.action_fragment_home_to_fragment_rewarded_video)
         }
-
         binding.btnInterstitial.setOnClickListener {
             navController.navigate(R.id.action_fragment_home_to_fragment_interstitial)
         }
-
         binding.btnStandardBanner.setOnClickListener {
             navController.navigate(R.id.action_fragment_home_to_fragment_standard_banner)
         }
-
         binding.btnNativeBanner.setOnClickListener {
             navController.navigate(R.id.action_fragment_home_to_fragment_native_banner)
+        }
+        binding.btnPreroll.setOnClickListener {
+            navController.navigate(R.id.action_fragment_home_to_fragment_preroll)
         }
     }
 

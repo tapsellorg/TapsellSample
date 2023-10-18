@@ -52,7 +52,6 @@ public class NativeBannerActivity extends AppCompatActivity {
     private void requestAd() {
         Tapsell.requestNativeAd(
                 BuildConfig.TAPSELL_NATIVE_BANNER,
-                this,
                 new RequestResultListener() {
                     @Override
                     public void onSuccess(@NonNull String adId) {

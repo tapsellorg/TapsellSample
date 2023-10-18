@@ -44,7 +44,7 @@ class RewardedVideoFragment : Fragment() {
     }
 
     private fun requestAd() {
-        viewModel.requestAd(Constants.TAPSELL_REWARDED_VIDEO, requireActivity())
+        viewModel.requestAd(Constants.TAPSELL_REWARDED_VIDEO)
     }
 
     private fun showAd() {

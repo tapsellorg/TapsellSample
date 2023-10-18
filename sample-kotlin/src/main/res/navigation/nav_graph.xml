@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_native_banner"
             app:destination="@id/fragment_native_banner" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_preroll"
+            app:destination="@id/fragment_preroll" />
 
     </fragment>
 
@@ -49,5 +52,11 @@
         android:name="ir.tapsell.sample.native.NativeBannerFragment"
         android:label="@string/native_banner"
         tools:layout="@layout/fragment_native_banner" />
+
+    <fragment
+        android:id="@+id/fragment_preroll"
+        android:name="ir.tapsell.sample.preroll.PreRollFragment"
+        android:label="@string/pre_roll"
+        tools:layout="@layout/fragment_preroll" />
 
 </navigation>

@@ -54,7 +54,6 @@ public class StandardBannerActivity extends AppCompatActivity {
         Tapsell.requestBannerAd(
                 BuildConfig.TAPSELL_NATIVE_BANNER,
                 BannerSize.BANNER_300_250,
-                this,
                 new RequestResultListener() {
                     @Override
                     public void onSuccess(@NonNull String adId) {
