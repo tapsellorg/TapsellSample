@@ -21,7 +21,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initTapsell() {
-        Tapsell.setInitializationListener(() -> Log.d(TAG, "onInitializationComplete"));
+        Tapsell.setInitializationListener(() -> {
+            Log.d(TAG, "onInitializationComplete");
+            Tapsell.setUserConsent(this, true);
+        });
     }
 
     private void setClickListeners() {

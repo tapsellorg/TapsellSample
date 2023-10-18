@@ -17,8 +17,8 @@ class RewardedVideoViewModel : BaseViewModel() {
     var responseId: String? = null
         private set
 
-    fun requestAd(zoneId: String, activity: FragmentActivity) {
-        Tapsell.requestRewardedAd(zoneId, activity, object : RequestResultListener {
+    fun requestAd(zoneId: String) {
+        Tapsell.requestRewardedAd(zoneId, object : RequestResultListener {
             override fun onFailure() {
                 log(TAG, "onFailure", Log.ERROR)
             }

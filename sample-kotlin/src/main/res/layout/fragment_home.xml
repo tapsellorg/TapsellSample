@@ -42,4 +42,12 @@
         android:text="@string/standard_banner"
         app:layout_constraintTop_toBottomOf="@+id/btn_native_banner" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_preroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/space_small"
+        android:text="@string/pre_roll"
+        app:layout_constraintTop_toBottomOf="@+id/btn_standard_banner" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

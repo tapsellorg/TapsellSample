@@ -23,9 +23,9 @@ class InterstitialViewModel : BaseViewModel() {
         private const val TAG = "InterstitialViewModel"
     }
 
-    fun requestAd(activity: Activity) {
+    fun requestAd() {
         Tapsell.requestInterstitialAd(
-            Constants.TAPSELL_INTERSTITIAL, activity,
+            Constants.TAPSELL_INTERSTITIAL,
             object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)

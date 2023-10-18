@@ -44,7 +44,7 @@ class InterstitialFragment : Fragment() {
     }
 
     private fun requestAd() {
-        viewModel.requestAd(Constants.TAPSELL_INTERSTITIAL, requireActivity())
+        viewModel.requestAd(Constants.TAPSELL_INTERSTITIAL)
     }
 
     private fun showAd() {

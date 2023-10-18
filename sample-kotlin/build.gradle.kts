@@ -20,6 +20,7 @@ android {
 
         addManifestPlaceholders(
             mapOf(
+                "TapsellMediationAppMarket" to "CafeBazaar",
                 "TapsellMediationAppKey" to "76798342-99a7-4a5f-bf5a-60a088d5dcfb",
                 "TapsellMediationAdmobAdapterSignature" to "ca-app-pub-3940256099942544~3347511713",
                 "TapsellMediationApplovinAdapterSignature" to
@@ -82,14 +83,16 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.coil)
 
-
     implementation(libs.tapsell)
     implementation(libs.adapter.legacy)
+    implementation(libs.adapter.legacy.ima.extension)
     implementation(libs.adapter.admob)
     implementation(libs.adapter.unityads)
     implementation(libs.adapter.adcolony)
+    implementation(libs.adapter.applovin)
     implementation(libs.adapter.ironsource)
     implementation(libs.adapter.liftoff)
+    implementation(libs.adapter.mintegral)
     // implementation(libs.adapter.chartboost)
     // implementation(libs.adapter.wortise)
 
