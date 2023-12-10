@@ -123,7 +123,7 @@ class PreRollFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        viewModel.destroyAd()
+        viewModel.destroyAds()
         releasePlayer()
     }
 

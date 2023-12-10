@@ -14,8 +14,7 @@ class PreRollViewModel : BaseViewModel() {
         private const val TAG = "PreRollViewModel"
     }
 
-    var responseId: String? = null
-        private set
+    private var preRollAds = mutableListOf<String>()
 
     fun requestAd(
         zoneId: String, container: ViewGroup,
@@ -35,19 +34,19 @@ class PreRollViewModel : BaseViewModel() {
                 }
 
                 override fun onSuccess(adId: String) {
-                    responseId = adId
+                    preRollAds.add(adId)
                     log(TAG, "onSuccess: $adId")
                 }
             })
     }
 
     fun showAd() {
-        if (responseId.isNullOrEmpty()) {
+        if (preRollAds.lastOrNull().isNullOrEmpty()) {
             log(TAG, "adId is empty", Log.ERROR)
             return
         }
         Tapsell.showPreRollAd(
-            responseId,
+            preRollAds.last(),
             object : AdStateListener.PreRoll {
                 override fun onAdClicked() {
                     log(TAG, "onAdClicked")
@@ -67,12 +66,12 @@ class PreRollViewModel : BaseViewModel() {
             })
     }
 
-    fun destroyAd() {
-        if (responseId.isNullOrEmpty()) {
-            log(TAG, "adId is empty", Log.ERROR)
+    fun destroyAds() {
+        if (preRollAds.isEmpty()) {
+            log(TAG, "There is no adId to destroy", Log.ERROR)
             return
         }
-
-        Tapsell.destroyPreRollAd(responseId)
+        preRollAds.forEach { Tapsell.destroyPreRollAd(it) }
+        preRollAds.clear()
     }
 }
