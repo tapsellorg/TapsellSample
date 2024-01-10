@@ -8,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import ir.tapsell.sample.databinding.FragmentPrerollBinding
-import ir.tapsell.utils.Constants
+import ir.tapsell.utils.TapsellMediationKeys
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PreRollFragment : Fragment() {
 
@@ -43,11 +46,17 @@ class PreRollFragment : Fragment() {
         binding.btnReplay.setOnClickListener {
             restartPlayer()
         }
+
+        lifecycleScope.launch(Dispatchers.Main) {
+            viewModel.logMessage.collect {
+                binding.tvLog.text = it
+            }
+        }
     }
 
     private fun requestAd() {
         viewModel.requestAd(
-            zoneId = Constants.TAPSELL_PRE_ROLL,
+            zoneId = TapsellMediationKeys.PRE_ROLL,
             container = binding.videoPlayerContainer,
             companionContainer = binding.companionContainer, // optional
             videoPlayer = binding.exoPlayer,

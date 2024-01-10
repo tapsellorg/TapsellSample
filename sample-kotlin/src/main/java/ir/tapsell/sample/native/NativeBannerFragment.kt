@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.databinding.FragmentNativeBannerBinding
-import ir.tapsell.utils.Constants
+import ir.tapsell.utils.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -46,7 +46,7 @@ class NativeBannerFragment : Fragment() {
     }
 
     private fun requestAd() {
-        viewModel.requestAd(Constants.TAPSELL_NATIVE_BANNER)
+        viewModel.requestAd(TapsellMediationKeys.NATIVE)
     }
 
     private fun showAd() = NativeAdViewContainer(requireContext()).let {

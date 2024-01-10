@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import ir.tapsell.sample.databinding.FragmentInterstitialBinding
-import ir.tapsell.utils.Constants
+import ir.tapsell.utils.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -44,7 +44,7 @@ class InterstitialFragment : Fragment() {
     }
 
     private fun requestAd() {
-        viewModel.requestAd(Constants.TAPSELL_INTERSTITIAL)
+        viewModel.requestAd(TapsellMediationKeys.INTERSTITIAL)
     }
 
     private fun showAd() {

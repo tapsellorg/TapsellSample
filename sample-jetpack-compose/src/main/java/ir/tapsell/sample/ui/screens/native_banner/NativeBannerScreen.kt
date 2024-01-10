@@ -35,7 +35,6 @@ fun NativeBannerScreen(
     modifier: Modifier = Modifier,
     viewModel: NativeBannerViewModel = viewModel()
 ) {
-    val context = LocalContext.current as Activity
     val logMessage by viewModel.logMessage.collectAsState()
 
     DisposableEffect(Unit) {
@@ -70,7 +69,7 @@ fun NativeBannerScreen(
             Button(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = viewModel.isShowButtonEnabled,
-                onClick = { viewModel.showAd(context) }
+                onClick = viewModel::onShowClick
             ) {
                 Text(text = stringResource(R.string.show))
             }
@@ -85,10 +84,13 @@ fun NativeBannerScreen(
 
             LogText(logMessage)
 
-            TapsellNativeBannerView(
-                modifier = modifier.wrapContentSize(),
-                onUpdate = viewModel::updateAdHolder
-            )
+            if (viewModel.canShowAd) {
+                TapsellNativeBannerView(
+                    modifier = modifier.wrapContentSize(),
+                    onViewCreated = viewModel::showAd
+                )
+            }
+
         }
     }
 }
@@ -96,7 +98,7 @@ fun NativeBannerScreen(
 @Composable
 private fun TapsellNativeBannerView(
     modifier: Modifier = Modifier,
-    onUpdate: (NativeAdViewContainer?) -> Unit = {},
+    onViewCreated: (NativeAdViewContainer?) -> Unit = {},
 ) {
     val context = LocalContext.current as Activity
     val container = NativeAdViewContainer(context)
@@ -106,8 +108,8 @@ private fun TapsellNativeBannerView(
         factory = {
             val view = LayoutInflater.from(context)
                 .inflate(R.layout.banner_container, container, true)
-            onUpdate(view as? NativeAdViewContainer)
-            view
+            onViewCreated(view as? NativeAdViewContainer)
+            container
         }
     )
 }

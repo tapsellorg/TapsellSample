@@ -8,25 +8,30 @@ import androidx.compose.runtime.setValue
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.AdStateListener
 import ir.tapsell.mediation.ad.request.RequestResultListener
+import ir.tapsell.mediation.ad.views.ntv.NativeAdView
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
+import ir.tapsell.sample.R
 import ir.tapsell.sample.base.BaseViewModel
 import ir.tapsell.sample.utils.Constants
 
 
 class NativeBannerViewModel : BaseViewModel() {
 
-    private var responseId: String? = null
-    var isShowButtonEnabled by mutableStateOf(false)
-        private set
-    var isDestroyButtonEnabled by mutableStateOf(false)
-        private set
-    private var adContainer by mutableStateOf<NativeAdViewContainer?>(null)
-
     companion object {
         private const val TAG = "NativeBannerViewModel"
     }
 
+    private var responseId: String? = null
+    var isShowButtonEnabled by mutableStateOf(false)
+        private set
+    var canShowAd by mutableStateOf(false)
+        private set
+    var isDestroyButtonEnabled by mutableStateOf(false)
+        private set
+
     fun requestAd() {
+        // destroy previous ad if there is any to load new fresh ad
+        responseId?.let { destroyAd() }
         Tapsell.requestNativeAd(
             Constants.TAPSELL_NATIVE_BANNER,
             object : RequestResultListener {
@@ -42,20 +47,27 @@ class NativeBannerViewModel : BaseViewModel() {
             })
     }
 
-    fun showAd(activity: Activity) {
+    fun onShowClick() {
         if (responseId.isNullOrEmpty()) {
             log(TAG, "adId is empty", Log.ERROR)
             return
         }
-        if (adContainer == null) {
-            log(TAG, "adContainer is null", Log.ERROR)
-            return
-        }
+        canShowAd = true
+    }
+
+    fun showAd(adContainer: NativeAdViewContainer?) {
         adContainer?.let { container ->
             Tapsell.showNativeAd(
                 responseId,
-                container,
-                activity,
+                NativeAdView.Builder(container)
+                    .withMedia(container.findViewById(R.id.tapsell_native_ad_media))
+                    .withTitle(container.findViewById(R.id.tapsell_native_ad_title))
+                    .withDescription(container.findViewById(R.id.tapsell_native_ad_description))
+                    .withLogo(container.findViewById(R.id.tapsell_native_ad_logo))
+                    .withCtaButton(container.findViewById(R.id.tapsell_native_ad_cta))
+                    .withSponsored(container.findViewById(R.id.tapsell_native_ad_sponsored))
+                    .build(),
+                adContainer.context as Activity,
                 object : AdStateListener.Native {
                     override fun onAdClicked() {
                         log(TAG, "onAdClicked")
@@ -76,11 +88,9 @@ class NativeBannerViewModel : BaseViewModel() {
 
     fun destroyAd() {
         Tapsell.destroyNativeAd(responseId)
+        responseId = null
         isDestroyButtonEnabled = false
+        canShowAd = false
         log(TAG, "destroyAd")
-    }
-
-    fun updateAdHolder(adHolder: NativeAdViewContainer?) {
-        this.adContainer = adHolder
     }
 }

@@ -11,7 +11,7 @@ import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.request.BannerSize
 import ir.tapsell.mediation.ad.views.banner.BannerContainer
 import ir.tapsell.sample.databinding.FragmentStandardBannerBinding
-import ir.tapsell.utils.Constants
+import ir.tapsell.utils.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -48,7 +48,7 @@ class StandardBannerFragment : Fragment() {
 
     private fun requestAd() {
         viewModel.requestAd(
-            Constants.TAPSELL_STANDARD_BANNER,
+            TapsellMediationKeys.BANNER,
             BannerSize.BANNER_320_50
         )
     }
