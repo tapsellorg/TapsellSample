@@ -4,11 +4,11 @@ package ir.tapsell.utils
  * this object contains all the mediation ad networks for tapsell mediation
  */
 object TapsellMediationKeys {
-    const val REWARDED = "b4c24eba-b715-47aa-8e6e-641d19936765"
+    const val REWARDED = "1d710cc7-5e96-46ac-a3e9-8463300333e6"
     const val INTERSTITIAL = "b3972749-f62a-475a-9ff2-cfc9e2a40f87"
     const val NATIVE = "d217e3e6-0070-4120-925d-5d39d0298893"
     const val BANNER = "e3d5999c-5990-4e31-8ce9-642ce040a7f4"
-    const val PRE_ROLL = "628f60d7-8fd0-4aea-a840-2d2947121dd5"
+    const val PRE_ROLL = "6977a96f-e265-4895-b219-33bb6ba3df85"
 }
 object LegacyKeys {
     const val REWARDED = "63b92f04-3d0f-4805-84a4-abeccf4edc18"
