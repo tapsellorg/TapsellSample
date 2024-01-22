@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import ir.tapsell.sample.databinding.FragmentRewardedVideoBinding
-import ir.tapsell.utils.AdColonyKeys
+import ir.tapsell.utils.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -44,7 +44,7 @@ class RewardedVideoFragment : Fragment() {
     }
 
     private fun requestAd() {
-        viewModel.requestAd(AdColonyKeys.REWARDED)
+        viewModel.requestAd(TapsellMediationKeys.REWARDED)
     }
 
     private fun showAd() {
