@@ -12,6 +12,7 @@ import ir.tapsell.mediation.Tapsell;
 import ir.tapsell.mediation.ad.AdStateListener;
 import ir.tapsell.mediation.ad.request.RequestResultListener;
 import ir.tapsell.mediation.ad.show.AdShowCompletionState;
+import ir.tapsell.shared.TapsellMediationKeys;
 
 public class RewardedVideoActivity extends AppCompatActivity {
 
@@ -39,7 +40,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
     private void requestAd() {
 
         Tapsell.requestRewardedAd(
-                BuildConfig.TAPSELL_REWARDED_VIDEO,
+                TapsellMediationKeys.REWARDED,
                 new RequestResultListener() {
                     @Override
                     public void onSuccess(@NonNull String adId) {

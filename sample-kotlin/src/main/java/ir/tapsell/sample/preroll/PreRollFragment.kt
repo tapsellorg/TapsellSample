@@ -14,7 +14,7 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import ir.tapsell.sample.databinding.FragmentPrerollBinding
-import ir.tapsell.utils.TapsellMediationKeys
+import ir.tapsell.shared.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

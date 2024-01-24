@@ -1,4 +1,4 @@
-package ir.tapsell.utils
+package ir.tapsell.shared
 
 /**
  * this object contains all the mediation ad networks for tapsell mediation

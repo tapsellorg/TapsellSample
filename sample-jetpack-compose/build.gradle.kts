@@ -71,7 +71,7 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     lint {
         checkReleaseBuilds = false
@@ -94,6 +94,7 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     implementation(libs.androidx.navigation.compose)
+    implementation(project(":shared"))
 
     implementation(libs.tapsell)
     implementation(libs.adapter.legacy)

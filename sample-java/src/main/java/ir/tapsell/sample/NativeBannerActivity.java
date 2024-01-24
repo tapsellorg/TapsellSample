@@ -13,6 +13,7 @@ import ir.tapsell.mediation.Tapsell;
 import ir.tapsell.mediation.ad.AdStateListener;
 import ir.tapsell.mediation.ad.request.RequestResultListener;
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer;
+import ir.tapsell.shared.TapsellMediationKeys;
 
 public class NativeBannerActivity extends AppCompatActivity {
 
@@ -51,7 +52,7 @@ public class NativeBannerActivity extends AppCompatActivity {
 
     private void requestAd() {
         Tapsell.requestNativeAd(
-                BuildConfig.TAPSELL_NATIVE_BANNER,
+                TapsellMediationKeys.NATIVE,
                 new RequestResultListener() {
                     @Override
                     public void onSuccess(@NonNull String adId) {
