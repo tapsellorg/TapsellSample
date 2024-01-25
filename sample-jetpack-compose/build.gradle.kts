@@ -71,7 +71,7 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.6.0"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     lint {
         checkReleaseBuilds = false
