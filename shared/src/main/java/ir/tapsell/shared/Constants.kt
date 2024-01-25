@@ -61,3 +61,5 @@ object WortiseKeys {
     const val NATIVE = "88eab80b-113b-4856-8dc2-4aa571c4d7c3\n"
     const val BANNER = "ddd6c321-1f1f-4396-8524-a4f760063b2f"
 }
+
+const val MULTIPLE_NATIVE_REQUESTS_COUNT = 5
