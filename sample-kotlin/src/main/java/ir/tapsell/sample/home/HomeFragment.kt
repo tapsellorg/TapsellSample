@@ -13,23 +13,28 @@ import ir.tapsell.sample.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private val viewModel by activityViewModels<HomeViewModel>()
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentHomeBinding
+
+    /**
+     * [onCreate] is called only once. So you can use it to pass user consent.
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.setUserConsent(requireActivity(), true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return _binding!!.root
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val navController = findNavController()
-
-        viewModel.setUserConsent(requireActivity(), true)
 
         binding.btnRewardedVideo.setOnClickListener {
             navController.navigate(R.id.action_fragment_home_to_fragment_rewarded_video)
@@ -46,10 +51,5 @@ class HomeFragment : Fragment() {
         binding.btnPreroll.setOnClickListener {
             navController.navigate(R.id.action_fragment_home_to_fragment_preroll)
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }
