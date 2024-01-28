@@ -28,7 +28,7 @@ class NativeBannerViewModel : BaseViewModel() {
                 log(TAG, "onSuccess: $adId")
             }
         }.let { listener ->
-            if (count >= 1) Tapsell.requestMultipleNativeAds(zoneId, count, listener)
+            if (count > 1) Tapsell.requestMultipleNativeAds(zoneId, count, listener)
             else Tapsell.requestNativeAd(zoneId, listener)
         }
 
