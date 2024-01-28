@@ -13,19 +13,33 @@
 
         <action
             android:id="@+id/action_fragment_home_to_fragment_rewarded_video"
-            app:destination="@id/fragment_rewarded_video" />
+            app:destination="@id/fragment_rewarded_video"
+            app:popUpTo="@+id/fragment_home"
+            app:popUpToSaveState="true"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_fragment_home_to_fragment_standard_banner"
-            app:destination="@id/fragment_standard_banner" />
+            app:destination="@id/fragment_standard_banner"
+            app:popUpTo="@+id/fragment_home"
+            app:popUpToSaveState="true"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_fragment_home_to_fragment_interstitial"
-            app:destination="@id/fragment_interstitial" />
+            app:destination="@id/fragment_interstitial"
+            app:popUpTo="@+id/fragment_home"
+            app:popUpToSaveState="true"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_fragment_home_to_fragment_native_banner"
-            app:destination="@id/fragment_native_banner" />
+            app:destination="@id/fragment_native_banner"
+            app:popUpTo="@+id/fragment_home"
+            app:popUpToSaveState="true"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_fragment_home_to_fragment_preroll"
-            app:destination="@id/fragment_preroll" />
+            app:destination="@id/fragment_preroll"
+            app:popUpToSaveState="true"
+            app:restoreState="true" />
 
     </fragment>
 

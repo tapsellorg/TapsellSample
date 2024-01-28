@@ -11,7 +11,7 @@ import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.request.BannerSize
 import ir.tapsell.mediation.ad.views.banner.BannerContainer
 import ir.tapsell.sample.databinding.FragmentStandardBannerBinding
-import ir.tapsell.utils.TapsellMediationKeys
+import ir.tapsell.shared.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

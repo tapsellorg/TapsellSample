@@ -14,43 +14,51 @@ class NativeBannerViewModel : BaseViewModel() {
         private const val TAG = "NativeBannerViewModel"
     }
 
-    var responseId: String? = null
+    var responseIds = hashSetOf<String>()
         private set
 
-    fun requestAd(zoneId: String) {
-        Tapsell.requestNativeAd(zoneId, object : RequestResultListener {
+    fun requestAd(zoneId: String, count: Int = 1) {
+        object : RequestResultListener {
             override fun onFailure() {
                 log(TAG, "onFailure", Log.ERROR)
             }
 
             override fun onSuccess(adId: String) {
-                responseId = adId
+                responseIds.add(adId)
                 log(TAG, "onSuccess: $adId")
             }
-        })
+        }.let { listener ->
+            if (count > 1) Tapsell.requestMultipleNativeAds(zoneId, count, listener)
+            else Tapsell.requestNativeAd(zoneId, listener)
+        }
+
+
     }
 
     fun showAd(activity: FragmentActivity, container: NativeAdViewContainer) {
-        if (responseId.isNullOrEmpty()) {
-            log(TAG, "adId is empty", Log.ERROR)
+        if (responseIds.isEmpty()) {
+            log(TAG, "There is no adId to show", Log.ERROR)
             return
         }
-        Tapsell.showNativeAd(
-            responseId,
-            container,
-            activity,
-            object : AdStateListener.Native {
-                override fun onAdClicked() {
-                    log(TAG, "onAdClicked")
-                }
+        responseIds.random().let { id ->
+            responseIds.remove(id)
+            Tapsell.showNativeAd(
+                id,
+                container,
+                activity,
+                object : AdStateListener.Native {
+                    override fun onAdClicked() {
+                        log(TAG, "onAdClicked")
+                    }
 
-                override fun onAdFailed(message: String) {
-                    log(TAG, "onAdFailed: $message", Log.ERROR)
-                }
+                    override fun onAdFailed(message: String) {
+                        log(TAG, "onAdFailed: $message", Log.ERROR)
+                    }
 
-                override fun onAdImpression() {
-                    log(TAG, "onAdImpression")
-                }
-            })
+                    override fun onAdImpression() {
+                        log(TAG, "onAdImpression")
+                    }
+                })
+        }
     }
 }

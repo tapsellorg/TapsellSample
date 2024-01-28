@@ -10,7 +10,7 @@ import ir.tapsell.mediation.ad.AdStateListener
 import ir.tapsell.mediation.ad.request.RequestResultListener
 import ir.tapsell.mediation.ad.show.AdShowCompletionState
 import ir.tapsell.sample.base.BaseViewModel
-import ir.tapsell.sample.utils.Constants
+import ir.tapsell.shared.TapsellMediationKeys
 
 
 class InterstitialViewModel : BaseViewModel() {
@@ -25,7 +25,7 @@ class InterstitialViewModel : BaseViewModel() {
 
     fun requestAd() {
         Tapsell.requestInterstitialAd(
-            Constants.TAPSELL_INTERSTITIAL,
+            TapsellMediationKeys.INTERSTITIAL,
             object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)

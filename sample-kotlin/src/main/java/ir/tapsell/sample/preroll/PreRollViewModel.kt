@@ -6,6 +6,7 @@ import android.widget.FrameLayout
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.AdStateListener
 import ir.tapsell.mediation.ad.request.RequestResultListener
+import ir.tapsell.mediation.ad.show.AdShowCompletionState
 import ir.tapsell.sample.BaseViewModel
 
 class PreRollViewModel : BaseViewModel() {
@@ -52,7 +53,11 @@ class PreRollViewModel : BaseViewModel() {
                     log(TAG, "onAdClicked")
                 }
 
-                override fun onVastAvailable(vastUrl: String?) {
+                override fun onAdClosed(completionState: AdShowCompletionState) {
+                    log(TAG, "onAdClosed: ${completionState.name}")
+                }
+
+                override fun onVastAvailable(vastUrl: String) {
                     log(TAG, "onVastAvailable: $vastUrl")
                 }
 

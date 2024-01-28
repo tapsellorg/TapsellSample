@@ -2,6 +2,7 @@
     <string name="app_name">Tapsell Android Kotlin Sample</string>
     <string name="rewarded_video">Rewarded Video</string>
     <string name="request">Request</string>
+    <string name="request_multiple">Multiple Requests (5)</string>
     <string name="show">Show</string>
     <string name="destroy">Destroy</string>
     <string name="interstitial">Interstitial</string>

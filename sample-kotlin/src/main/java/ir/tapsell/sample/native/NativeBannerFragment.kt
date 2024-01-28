@@ -10,7 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.databinding.FragmentNativeBannerBinding
-import ir.tapsell.utils.TapsellMediationKeys
+import ir.tapsell.shared.MULTIPLE_NATIVE_REQUESTS_COUNT
+import ir.tapsell.shared.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -34,6 +35,9 @@ class NativeBannerFragment : Fragment() {
         binding.btnRequest.setOnClickListener {
             requestAd()
         }
+        binding.btnRequestMultiple.setOnClickListener {
+            requestAd(MULTIPLE_NATIVE_REQUESTS_COUNT)
+        }
         binding.btnShow.setOnClickListener {
             showAd()
         }
@@ -45,8 +49,8 @@ class NativeBannerFragment : Fragment() {
         }
     }
 
-    private fun requestAd() {
-        viewModel.requestAd(TapsellMediationKeys.NATIVE)
+    private fun requestAd(count: Int = 1) {
+        viewModel.requestAd(TapsellMediationKeys.NATIVE, count)
     }
 
     private fun showAd() = NativeAdViewContainer(requireContext()).let {
@@ -57,6 +61,6 @@ class NativeBannerFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        Tapsell.destroyNativeAd(viewModel.responseId)
+        viewModel.responseIds.forEach(Tapsell::destroyNativeAd)
     }
 }

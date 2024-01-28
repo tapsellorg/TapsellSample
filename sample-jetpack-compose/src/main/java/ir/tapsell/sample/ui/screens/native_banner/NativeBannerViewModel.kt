@@ -12,7 +12,7 @@ import ir.tapsell.mediation.ad.views.ntv.NativeAdView
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.R
 import ir.tapsell.sample.base.BaseViewModel
-import ir.tapsell.sample.utils.Constants
+import ir.tapsell.shared.TapsellMediationKeys
 
 
 class NativeBannerViewModel : BaseViewModel() {
@@ -33,7 +33,7 @@ class NativeBannerViewModel : BaseViewModel() {
         // destroy previous ad if there is any to load new fresh ad
         responseId?.let { destroyAd() }
         Tapsell.requestNativeAd(
-            Constants.TAPSELL_NATIVE_BANNER,
+            TapsellMediationKeys.NATIVE,
             object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)
