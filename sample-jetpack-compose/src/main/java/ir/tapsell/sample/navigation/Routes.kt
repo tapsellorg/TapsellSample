@@ -11,4 +11,6 @@ object Routes {
     const val NATIVE_BANNER = "native_banner"
 
     const val STANDARD_BANNER = "standard_banner"
+
+    const val PRE_ROLL = "pre_roll"
 }

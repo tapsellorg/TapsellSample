@@ -18,7 +18,8 @@ class PreRollViewModel : BaseViewModel() {
     private var preRollAds = mutableListOf<String>()
 
     fun requestAd(
-        zoneId: String, container: ViewGroup,
+        zoneId: String,
+        container: ViewGroup,
         companionContainer: ViewGroup?,
         videoPlayer: FrameLayout,
         videoPath: String?,
