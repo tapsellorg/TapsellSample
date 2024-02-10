@@ -96,6 +96,15 @@ fun HomeScreen(
             ) {
                 Text(text = stringResource(R.string.native_banner))
             }
+
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {
+                    navController.navigate(Routes.PRE_ROLL)
+                }
+            ) {
+                Text(text = stringResource(R.string.preroll))
+            }
         }
     }
 }
