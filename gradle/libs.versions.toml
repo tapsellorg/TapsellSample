@@ -9,13 +9,13 @@ appcompat = "1.6.1"
 leakcanary = "2.10"
 material = "1.11.0"
 constraintlayout = "2.1.4"
-navigation-fragment-ktx = "2.7.6"
-tapsell = "1.0.1-beta04"
+navigation-fragment-ktx = "2.7.7"
+tapsell = "1.0.1-beta05"
 lifecycle-livedata-ktx = "2.7.0"
 lifecycle-viewmodel-ktx = "2.7.0"
 lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.8.2"
-compose-bom = "2024.02.00"
+compose-bom = "2024.02.01"
 coil = "2.4.0"
 
 [libraries]
@@ -38,7 +38,7 @@ adapter-legacy-ima-extension = { module = "ir.tapsell.mediation.adapter:legacy-i
 adapter-admob = { module = "ir.tapsell.mediation.adapter:admob", version.ref = "tapsell" }
 adapter-unityads = { module = "ir.tapsell.mediation.adapter:unityads", version.ref = "tapsell" }
 adapter-mintegral = { module = "ir.tapsell.mediation.adapter:mintegral", version.ref = "tapsell" }
-adapter-adcolony = { module = "ir.tapsell.mediation.adapter:adcolony", version.ref = "tapsell" }
+adapter-fyber = { module = "ir.tapsell.mediation.adapter:fyber", version.ref = "tapsell" }
 adapter-applovin = { module = "ir.tapsell.mediation.adapter:applovin", version.ref = "tapsell" }
 adapter-ironsource = { module = "ir.tapsell.mediation.adapter:ironsource", version.ref = "tapsell" }
 adapter-liftoff = { module = "ir.tapsell.mediation.adapter:liftoff", version.ref = "tapsell" }
