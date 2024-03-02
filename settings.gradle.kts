@@ -17,6 +17,7 @@ dependencyResolutionManagement {
         maven("https://cboost.jfrog.io/artifactory/chartboost-mediation")
         maven("https://cboost.jfrog.io/artifactory/chartboost-ads")
         maven("https://maven.wortise.com/artifactory/public")
+        maven("https://artifact.bytedance.com/repository/pangle")
 
     }
 }
