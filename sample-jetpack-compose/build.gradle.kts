@@ -106,8 +106,8 @@ dependencies {
     implementation(libs.adapter.ironsource)
     implementation(libs.adapter.liftoff)
     implementation(libs.adapter.mintegral)
-    // implementation(libs.adapter.chartboost)
-    // implementation(libs.adapter.wortise)
+    implementation(libs.adapter.chartboost)
+    implementation(libs.adapter.wortise)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
