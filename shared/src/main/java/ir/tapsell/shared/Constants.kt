@@ -23,7 +23,7 @@ object AdmobKeys {
     const val NATIVE = "15cacb1b-6598-4fe9-b2da-8b26b4c1bbc5"
     const val BANNER = "f965455e-a37a-4732-a0b4-05fc39cae16e"
 }
-object AdColonyKeys {
+object FyberKeys {
     const val REWARDED = "42bd8edf-bdc9-4da5-ae6d-d465366b29f4"
     const val INTERSTITIAL = "ec274046-5cc7-40e0-973b-405084682967"
     const val BANNER = "10365955-147e-4fbc-9a08-15a930797902"

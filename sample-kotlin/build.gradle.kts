@@ -93,7 +93,7 @@ dependencies {
     implementation(libs.adapter.legacy.ima.extension)
     implementation(libs.adapter.admob)
     implementation(libs.adapter.unityads)
-    implementation(libs.adapter.adcolony)
+    implementation(libs.adapter.fyber)
     implementation(libs.adapter.applovin)
     implementation(libs.adapter.ironsource)
     implementation(libs.adapter.liftoff)
