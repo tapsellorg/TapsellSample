@@ -1,0 +1,32 @@
+name: Danger
+
+on:
+  pull_request:
+    types: [ assigned, opened, closed, edited, reopened, labeled, unlabeled, synchronize ]
+    branches-ignore:
+      - master
+jobs:
+  danger:
+    name: Danger Android
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 100
+      - name: Setup Ruby v3.3
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3 # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      - name: Setup bundle and install danger
+        run: |
+          gem install bundler
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Run Danger
+        env:
+          GITHUB_TOKEN: ${{secrets.DANGER_GITHUB_API_TOKEN}}
+        run: |
+          bundle exec danger
