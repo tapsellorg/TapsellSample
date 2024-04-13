@@ -1,4 +1,5 @@
 [![Maven Central](https://img.shields.io/maven-central/v/ir.tapsell.mediation/tapsell)](https://search.maven.org/artifact/ir.tapsell.mediation/tapsell)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/{owner}/TapsellMediation-AndroidSample//badge)](https://securityscorecards.dev/viewer/?uri=github.com/{owner}/TapsellMediation-AndroidSample)
 
 # Tapsell Mediation
 
