@@ -16,7 +16,7 @@ lifecycle-viewmodel-ktx = "2.7.0"
 lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.8.2"
 compose-bom = "2024.04.00"
-coil = "2.4.0"
+coil = "2.6.0"
 
 [libraries]
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-fragment-ktx" }
