@@ -16,12 +16,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ir.tapsell.sample.R
 import ir.tapsell.sample.ui.components.LogText
+import ir.tapsell.shared.TestTags
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,14 +54,17 @@ fun RewardedVideoScreen(
 
             Button(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .testTag(TestTags.REQUEST),
                 onClick = (viewModel::requestAd)
             ) {
                 Text(text = stringResource(R.string.request))
             }
 
             Button(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag(TestTags.SHOW),
                 enabled = viewModel.isShowButtonEnabled,
                 onClick = { viewModel.showAd(context) }
             ) {

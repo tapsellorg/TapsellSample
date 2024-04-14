@@ -1,0 +1,11 @@
+---
+- ignore-rules:
+  - android_kotlin_logging
+  - android_kotlin_hardcoded
+  - android_root_detection
+  - android_safetynet
+  - android_ssl_pinning
+  - android_certificate_pinning
+  - android_certificate_transparency
+  - android_prevent_screenshot
+  - android_manifest_insecure_minsdk
