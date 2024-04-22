@@ -14,7 +14,7 @@ tapsell = "1.0.1-beta05"
 lifecycle-livedata-ktx = "2.7.0"
 lifecycle-viewmodel-ktx = "2.7.0"
 lifecycle-runtime-ktx = "2.7.0"
-activity-compose = "1.8.2"
+activity-compose = "1.9.0"
 compose-bom = "2024.04.00"
 coil = "2.6.0"
 
