@@ -20,11 +20,10 @@ android {
 
         addManifestPlaceholders(
             mapOf(
-                "TapsellMediationAppMarket" to "CafeBazaar",
-                "TapsellMediationAppKey" to "76798342-99a7-4a5f-bf5a-60a088d5dcfb",
-                "TapsellMediationAdmobAdapterSignature" to "ca-app-pub-3940256099942544~3347511713",
-                "TapsellMediationApplovinAdapterSignature" to
-                        "5WfZLCGTQmDr6Mf7BBEf5blVwrf8VBMJSmwUSq9-1q5bPpCH_OGAWEP2z2lRkmonLgPzG6gbL4DlvUF9frFmt6",
+                "TapsellMediationAppMarket" to properties["TAPSELL_APP_MARKET"] as String,
+                "TapsellMediationAppKey" to properties["TAPSELL_APP_ID"] as String,
+                "TapsellMediationAdmobAdapterSignature" to properties["ADMOB_APP_ID"] as String,
+                "TapsellMediationApplovinAdapterSignature" to properties["APPLOVIN_APP_ID"] as String,
             )
         )
     }
@@ -106,3 +105,4 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     debugImplementation(libs.leakcanary)
 }
+

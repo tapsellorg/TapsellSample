@@ -37,6 +37,7 @@ class PreRollFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.inputZone.setText(TapsellMediationKeys.PRE_ROLL)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }
@@ -56,7 +57,7 @@ class PreRollFragment : Fragment() {
 
     private fun requestAd() {
         viewModel.requestAd(
-            zoneId = TapsellMediationKeys.PRE_ROLL,
+            zoneId = binding.inputZone.text.toString(),
             container = binding.videoPlayerContainer,
             companionContainer = binding.companionContainer, // optional
             videoPlayer = binding.exoPlayer,

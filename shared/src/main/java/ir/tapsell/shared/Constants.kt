@@ -20,6 +20,7 @@ object LegacyKeys {
 object AdmobKeys {
     const val REWARDED = "d8f4ff72-e2e9-4e67-9eb8-f6d75787ef09"
     const val INTERSTITIAL = "48b73764-8025-4c9d-9507-ce7a2c7f32ef"
+    const val APP_OPEN = "48b73764-8025-4c9d-9507-ce7a2c7f32ef"
     const val NATIVE = "15cacb1b-6598-4fe9-b2da-8b26b4c1bbc5"
     const val BANNER = "f965455e-a37a-4732-a0b4-05fc39cae16e"
 }

@@ -40,6 +40,9 @@
             app:destination="@id/fragment_preroll"
             app:popUpToSaveState="true"
             app:restoreState="true" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_app_open"
+            app:destination="@id/fragment_app_open" />
 
     </fragment>
 
@@ -54,6 +57,12 @@
         android:name="ir.tapsell.sample.interstitial.InterstitialFragment"
         android:label="@string/interstitial"
         tools:layout="@layout/fragment_interstitial" />
+
+    <fragment
+        android:id="@+id/fragment_app_open"
+        android:name="ir.tapsell.sample.appopen.AppOpenFragment"
+        android:label="@string/app_open"
+        tools:layout="@layout/fragment_app_open" />
 
     <fragment
         android:id="@+id/fragment_standard_banner"
