@@ -1,10 +1,11 @@
 #!/bin/bash
 
-PROJECT_DIR=""
-if [ -n "${GITHUB_WORKSPACE}" ]; then
-  PROJECT_DIR="${GITHUB_WORKSPACE}"
+PROJECT_DIR=${{ github.workspace }}
+if [ -n "${PROJECT_DIR}" ]; then
+  update_app_keys "$1" "$2" "$3"
 else
   PROJECT_DIR=$(dirname "$PWD")
+  update_app_keys "$1" "$2" "$3"
 fi
 
 FILE="$PROJECT_DIR/build.gradle.kts"
@@ -28,5 +29,3 @@ update_app_keys() {
       echo "Failed to update app keys: One or more keys are undefined."
   fi
 }
-
-update_app_keys "$1" "$2" "$3"
