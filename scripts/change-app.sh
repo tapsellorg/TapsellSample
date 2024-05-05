@@ -20,10 +20,11 @@ update_app_keys() {
   fi
 }
 
-PROJECT_DIR=${GITHUB_WORKSPACE}
-if [ -n "${PROJECT_DIR}" ]; then
-  update_app_keys "$1" "$2" "$3"
-else
-  PROJECT_DIR=$(dirname "$PWD")
-  update_app_keys "$1" "$2" "$3"
-fi
+PROJECT_DIR=/home/runner/work/TapsellMediation-AndroidSample/build.gradle.kts
+update_app_keys "$1" "$2" "$3"
+#if [ -n "${PROJECT_DIR}" ]; then
+#  update_app_keys "$1" "$2" "$3"
+#else
+#  PROJECT_DIR=$(dirname "$PWD")
+#  update_app_keys "$1" "$2" "$3"
+#fi
