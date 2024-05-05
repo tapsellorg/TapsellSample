@@ -26,3 +26,5 @@ update_app_keys() {
       echo "Failed to update app keys: One or more keys are undefined."
   fi
 }
+
+update_app_keys "$1" "$2" "$3"
