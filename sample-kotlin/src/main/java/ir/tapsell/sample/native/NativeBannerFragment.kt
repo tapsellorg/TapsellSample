@@ -32,6 +32,7 @@ class NativeBannerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.inputZone.setText(TapsellMediationKeys.NATIVE)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }
@@ -50,7 +51,7 @@ class NativeBannerFragment : Fragment() {
     }
 
     private fun requestAd(count: Int = 1) {
-        viewModel.requestAd(TapsellMediationKeys.NATIVE, count)
+        viewModel.requestAd(binding.inputZone.text.toString(), count)
     }
 
     private fun showAd() = NativeAdViewContainer(requireContext()).let {

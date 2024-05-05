@@ -22,8 +22,17 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/space_small"
         android:text="@string/interstitial"
-        app:layout_constraintBottom_toTopOf="@+id/btn_native_banner"
+        app:layout_constraintBottom_toTopOf="@+id/btn_app_open"
         app:layout_constraintTop_toBottomOf="@+id/btn_rewarded_video" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_app_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/space_small"
+        android:text="@string/app_open"
+        app:layout_constraintBottom_toTopOf="@+id/btn_native_banner"
+        app:layout_constraintTop_toBottomOf="@+id/btn_interstitial" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_native_banner"
@@ -32,7 +41,7 @@
         android:layout_marginVertical="@dimen/space_small"
         android:text="@string/native_banner"
         app:layout_constraintBottom_toTopOf="@+id/btn_standard_banner"
-        app:layout_constraintTop_toBottomOf="@+id/btn_interstitial" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_app_open" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_standard_banner"

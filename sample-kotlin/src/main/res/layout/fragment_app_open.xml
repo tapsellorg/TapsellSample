@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/space_small"
-    tools:context=".rewarded.RewardedVideoFragment">
+    tools:context=".appopen.AppOpenFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_request"
@@ -35,14 +35,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_show" />
-
-    <ir.tapsell.mediation.ad.views.banner.BannerContainer
-        android:id="@+id/bannerContainerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_zone"

@@ -32,6 +32,7 @@ class StandardBannerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.inputZone.setText(AdmobKeys.BANNER)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }
@@ -48,7 +49,7 @@ class StandardBannerFragment : Fragment() {
 
     private fun requestAd() {
         viewModel.requestAd(
-            AdmobKeys.BANNER,
+            binding.inputZone.text.toString(),
             BannerSize.BANNER_ADAPTIVE
         )
     }

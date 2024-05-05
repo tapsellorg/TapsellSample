@@ -29,6 +29,7 @@ class RewardedVideoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.inputZone.setText(TapsellMediationKeys.REWARDED)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }
@@ -44,7 +45,7 @@ class RewardedVideoFragment : Fragment() {
     }
 
     private fun requestAd() {
-        viewModel.requestAd(TapsellMediationKeys.REWARDED)
+        viewModel.requestAd(binding.inputZone.text.toString())
     }
 
     private fun showAd() {

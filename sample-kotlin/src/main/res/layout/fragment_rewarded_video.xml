@@ -11,6 +11,7 @@
         android:id="@+id/btn_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         android:text="@string/request"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,5 +36,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_show" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/zone_id"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/h6"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

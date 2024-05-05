@@ -42,6 +42,9 @@ class HomeFragment : Fragment() {
         binding.btnInterstitial.setOnClickListener {
             navController.navigate(R.id.action_fragment_home_to_fragment_interstitial)
         }
+        binding.btnAppOpen.setOnClickListener {
+            navController.navigate(R.id.action_fragment_home_to_fragment_app_open)
+        }
         binding.btnStandardBanner.setOnClickListener {
             navController.navigate(R.id.action_fragment_home_to_fragment_standard_banner)
         }

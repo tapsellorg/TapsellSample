@@ -1,0 +1,59 @@
+name: Android Dynamic Release
+on:
+  workflow_dispatch:
+    inputs:
+      tapsellAppKey:
+        description: 'Tapsell App Key'
+        required: true
+        default: '76798342-99a7-4a5f-bf5a-60a088d5dcfb'
+      AdmobAppKey:
+        description: 'Admob App Key'
+        required: true
+        default: 'ca-app-pub-3940256099942544~3347511713'
+      ApplovinAppKey:
+        description: 'Applovin App Key'
+        required: true
+        default: '5WfZLCGTQmDr6Mf7BBEf5blVwrf8VBMJSmwUSq9-1q5bPpCH_OGAWEP2z2lRkmonLgPzG6gbL4DlvUF9frFmt6'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Decode Keystore
+        env:
+          # Create `SIGNING_KEY_STORE_BASE64` environment in GitHub secrets and place the base64 encoded value
+          # of your keystore there.
+          ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
+          SIGNING_KEY_STORE_PATH: ${{ secrets.MYAPP_RELEASE_STORE_FILE }}
+
+        run: |
+          echo "keystore path: $MYAPP_RELEASE_STORE_FILE"
+          echo $ENCODED_STRING > keystore-b64.txt
+          base64 -d keystore-b64.txt > release.keystore
+
+      - name: Build Release apk
+        env:
+          SIGNING_KEY_STORE_PATH: ${{ secrets.MYAPP_RELEASE_STORE_FILE }}
+          SIGNING_KEY_ALIAS: ${{ secrets.MYAPP_RELEASE_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.MYAPP_RELEASE_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.MYAPP_RELEASE_STORE_PASSWORD }}
+        run: |
+          sh ./scripts/change-app.sh "${{ github.event.inputs.tapsellAppKey }}" "${{ github.event.inputs.AdmobAppKey }}" "${{ github.event.inputs.ApplovinAppKey }}"
+          ./gradlew sample-kotlin:assembleRelease
+
+      - name: Upload Release Build to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-artifacts
+          path: sample-kotlin/build/outputs/apk/release/*universal-release*.apk
+      

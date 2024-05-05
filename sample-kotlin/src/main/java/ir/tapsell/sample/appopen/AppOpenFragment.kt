@@ -1,4 +1,4 @@
-package ir.tapsell.sample.interstitial
+package ir.tapsell.sample.appopen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import ir.tapsell.sample.databinding.FragmentInterstitialBinding
-import ir.tapsell.shared.TapsellMediationKeys
+import ir.tapsell.shared.AdmobKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class InterstitialFragment : Fragment() {
+class AppOpenFragment : Fragment() {
 
     private var _binding: FragmentInterstitialBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<InterstitialViewModel>()
+    private val viewModel by viewModels<AppOpenViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +29,7 @@ class InterstitialFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.inputZone.setText(TapsellMediationKeys.INTERSTITIAL)
+        binding.inputZone.setText(AdmobKeys.APP_OPEN)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }
