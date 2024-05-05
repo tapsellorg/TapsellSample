@@ -6,7 +6,7 @@ update_app_keys() {
   CI_ADMOB_APP_ID="$2"
   CI_APPLOVIN_APP_ID="$3"
 
-  FILE="$PROJECT_DIR/build.gradle.kts"
+  FILE="$GITHUB_WORKSPACE/build.gradle.kts"
 
   echo "Project Directory: $FILE"
 
@@ -20,11 +20,4 @@ update_app_keys() {
   fi
 }
 
-PROJECT_DIR=/home/runner/work/TapsellMediation-AndroidSample
-update_app_keys "$1" "$2" "$3"
-#if [ -n "${PROJECT_DIR}" ]; then
-#  update_app_keys "$1" "$2" "$3"
-#else
-#  PROJECT_DIR=$(dirname "$PWD")
-#  update_app_keys "$1" "$2" "$3"
-#fi
+update_app_keys d86026a0-2637-43df-98a3-7078db8feb7a ca-app-pub-3940256099942544~3347511713 5WfZLCGTQmDr6Mf7BBEf5blVwrf8VBMJSmwUSq9-1q5bPpCH_OGAWEP2z2lRkmonLgPzG6gbL4DlvUF9frFmt6
