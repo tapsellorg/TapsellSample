@@ -2,7 +2,7 @@ name: Android Dynamic Release
 on:
   workflow_dispatch:
     inputs:
-      tapsellAppKey:
+      TapsellAppKey:
         description: 'Tapsell App Key'
         required: true
         default: '76798342-99a7-4a5f-bf5a-60a088d5dcfb'
@@ -48,7 +48,7 @@ jobs:
           SIGNING_KEY_PASSWORD: ${{ secrets.MYAPP_RELEASE_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.MYAPP_RELEASE_STORE_PASSWORD }}
         run: |
-          ./scripts/change-app.sh "${{ github.event.inputs.tapsellAppKey }}" "${{ github.event.inputs.AdmobAppKey }}" "${{ github.event.inputs.ApplovinAppKey }}"
+          chmod +x ../../scripts/change-app.sh "${{ github.event.inputs.TapsellAppKey }}" "${{ github.event.inputs.AdmobAppKey }}" "${{ github.event.inputs.ApplovinAppKey }}"
           ./gradlew sample-kotlin:assembleRelease
 
       - name: Upload Release Build to Artifacts
