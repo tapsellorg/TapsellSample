@@ -1,7 +1,5 @@
 name: mobsfscan sarif
 on:
-  push:
-    branches: [ master, test ]
   pull_request:
     branches: [ master ]
 

@@ -49,7 +49,7 @@ jobs:
           SIGNING_STORE_PASSWORD: ${{ secrets.MYAPP_RELEASE_STORE_PASSWORD }}
         run: |
           echo "GITHUB_WORKSPACE: ${{ github.workspace }}"
-          ../../scripts/change-app.sh "${{ github.event.inputs.TapsellAppKey }}" "${{ github.event.inputs.AdmobAppKey }}" "${{ github.event.inputs.ApplovinAppKey }}"
+          ./scripts/change-app.sh "${{ github.event.inputs.TapsellAppKey }}" "${{ github.event.inputs.AdmobAppKey }}" "${{ github.event.inputs.ApplovinAppKey }}"
           ./gradlew sample-kotlin:assembleRelease
 
       - name: Upload Release Build to Artifacts

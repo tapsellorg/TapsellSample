@@ -1,9 +1,5 @@
 name: Android Release
 on:
-  push:
-    branches: [ "test", "master" ]
-    tags:
-      - v*
   pull_request:
     branches: [ "master" ]
 
