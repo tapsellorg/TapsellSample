@@ -20,7 +20,7 @@ update_app_keys() {
   fi
 }
 
-PROJECT_DIR=/home/runner/work/TapsellMediation-AndroidSample/build.gradle.kts
+PROJECT_DIR=/home/runner/work/TapsellMediation-AndroidSample
 update_app_keys "$1" "$2" "$3"
 #if [ -n "${PROJECT_DIR}" ]; then
 #  update_app_keys "$1" "$2" "$3"
