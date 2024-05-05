@@ -18,7 +18,7 @@ android {
 
         multiDexEnabled = true
 
-        print("TapsellManifestPlaceholders: ${properties["TAPSELL_APP_ID"]}")
+        println("TapsellManifestPlaceholders: ${properties["TAPSELL_APP_ID"]}")
 
         addManifestPlaceholders(
             mapOf(
