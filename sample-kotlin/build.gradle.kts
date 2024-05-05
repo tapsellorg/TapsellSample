@@ -18,6 +18,8 @@ android {
 
         multiDexEnabled = true
 
+        print("TapsellManifestPlaceholders: ${properties["TAPSELL_APP_ID"]}")
+
         addManifestPlaceholders(
             mapOf(
                 "TapsellMediationAppMarket" to properties["TAPSELL_APP_MARKET"] as String,
