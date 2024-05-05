@@ -27,4 +27,4 @@ update_app_keys() {
   fi
 }
 
-update_app_keys d86026a0-2637-43df-98a3-7078db8feb7a ca-app-pub-3940256099942544~3347511713 5WfZLCGTQmDr6Mf7BBEf5blVwrf8VBMJSmwUSq9-1q5bPpCH_OGAWEP2z2lRkmonLgPzG6gbL4DlvUF9frFmt6
+update_app_keys "$1" "$2" "$3"
