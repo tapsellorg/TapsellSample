@@ -5,6 +5,7 @@
     <dimen name="space_medium">16dp</dimen>
     <dimen name="space_large">64dp</dimen>
 
+    <dimen name="h7">10sp</dimen>
     <dimen name="h6">12sp</dimen>
     <dimen name="h5">14sp</dimen>
     <dimen name="h4">16sp</dimen>
