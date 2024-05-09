@@ -7,6 +7,8 @@ android {
     namespace = "ir.tapsell.sample"
     compileSdk = 34
 
+    setProperty("archivesBaseName", properties["TAPSELL_APP_NAME"] as String)
+
     defaultConfig {
         applicationId = "ir.tapsell.sample"
         minSdk = 21
