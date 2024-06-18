@@ -10,6 +10,9 @@ Tapsell Mediation, is a Mediated solution helping businesses increase their mobi
 
 Please refer to our [Documents](https://docs.tapsell.ir/mediation/android) for the implementation details
 
+1. Change the `TAPSELL_APP_ID`, `ADMOB_APP_ID`, `APPLOVIN_APP_ID`, and `TAPSELL_MARKET` in the `TapsellManifestPlaceholders` object in the root `/build.gradle` file to your own app.
+2. Sync the project and run one of the following sample modules.
+
 ## Samples
 
 Based on your project type, you can find the sample in the following modules:
