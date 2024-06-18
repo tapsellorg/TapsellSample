@@ -54,7 +54,8 @@ class NativeBannerViewModel : BaseViewModel() {
                     .withLogo(container.findViewById(R.id.tapsell_native_ad_logo))
                     .withCtaButton(container.findViewById(R.id.tapsell_native_ad_cta))
                     .withSponsored(container.findViewById(R.id.tapsell_native_ad_sponsored))
-                    .build(),                activity,
+                    .build(),
+                activity,
                 object : AdStateListener.Native {
                     override fun onAdClicked() {
                         log(TAG, "onAdClicked")
