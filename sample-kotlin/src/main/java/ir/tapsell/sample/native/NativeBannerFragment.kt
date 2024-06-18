@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
+import ir.tapsell.sample.R
 import ir.tapsell.sample.databinding.FragmentNativeBannerBinding
 import ir.tapsell.shared.MULTIPLE_NATIVE_REQUESTS_COUNT
 import ir.tapsell.shared.TapsellMediationKeys
@@ -55,7 +56,9 @@ class NativeBannerFragment : Fragment() {
     }
 
     private fun showAd() = NativeAdViewContainer(requireContext()).let {
-        binding.nativeBannerContainer.addView(it)
+        val view = LayoutInflater.from(context)
+            .inflate(R.layout.banner_container, it, true)
+        binding.nativeBannerContainer.addView(view)
         viewModel.showAd(requireActivity(), it)
     }
 

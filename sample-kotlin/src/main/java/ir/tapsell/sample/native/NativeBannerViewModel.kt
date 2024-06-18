@@ -1,12 +1,15 @@
 package ir.tapsell.sample.native
 
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.FragmentActivity
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.AdStateListener
 import ir.tapsell.mediation.ad.request.RequestResultListener
+import ir.tapsell.mediation.ad.views.ntv.NativeAdView
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.BaseViewModel
+import ir.tapsell.sample.R
 
 class NativeBannerViewModel : BaseViewModel() {
 
@@ -44,8 +47,14 @@ class NativeBannerViewModel : BaseViewModel() {
             responseIds.remove(id)
             Tapsell.showNativeAd(
                 id,
-                container,
-                activity,
+                NativeAdView.Builder(container)
+                    .withMedia(container.findViewById(R.id.tapsell_native_ad_media))
+                    .withTitle(container.findViewById(R.id.tapsell_native_ad_title))
+                    .withDescription(container.findViewById(R.id.tapsell_native_ad_description))
+                    .withLogo(container.findViewById(R.id.tapsell_native_ad_logo))
+                    .withCtaButton(container.findViewById(R.id.tapsell_native_ad_cta))
+                    .withSponsored(container.findViewById(R.id.tapsell_native_ad_sponsored))
+                    .build(),                activity,
                 object : AdStateListener.Native {
                     override fun onAdClicked() {
                         log(TAG, "onAdClicked")
