@@ -1,7 +1,6 @@
 package ir.tapsell.sample.native
 
 import android.util.Log
-import android.view.View
 import androidx.fragment.app.FragmentActivity
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.AdStateListener
