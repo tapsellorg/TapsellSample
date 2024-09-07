@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "ir.tapsell.sample"
-    compileSdk = 34
+    compileSdk = 35
 
     setProperty("archivesBaseName", properties["TAPSELL_APP_NAME"] as String)
 
     defaultConfig {
         applicationId = "ir.tapsell.sample"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -22,10 +22,8 @@ android {
 
         addManifestPlaceholders(
             mapOf(
-                "TapsellMediationAppMarket" to properties["TAPSELL_APP_MARKET"] as String,
                 "TapsellMediationAppKey" to properties["TAPSELL_APP_ID"] as String,
                 "TapsellMediationAdmobAdapterSignature" to properties["ADMOB_APP_ID"] as String,
-                "TapsellMediationApplovinAdapterSignature" to properties["APPLOVIN_APP_ID"] as String,
             )
         )
     }

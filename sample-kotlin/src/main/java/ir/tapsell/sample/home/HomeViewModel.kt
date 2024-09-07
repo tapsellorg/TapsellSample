@@ -26,7 +26,7 @@ class HomeViewModel : ViewModel() {
     }
 
     private fun printAppIds(activity: Activity) = getAppIds(activity).let { appIds ->
-        Log.d(TAG, "onInitializationComplete: $appIds")
+        Log.d(TAG, "onInitializationComplete: ${appIds.toList()}")
         Snackbar.make(
             activity.findViewById(android.R.id.content),
             "onInitializationComplete: ${appIds.joinToString()}",
@@ -42,17 +42,16 @@ class HomeViewModel : ViewModel() {
     }
 
     /**
-     * @return Array of app ids added in manifest: [Tapsell], [Admob], [Applovin]
+     * @return Array of app ids added in manifest: [Tapsell], [Admob]
      */
     private fun getAppIds(context: Context): Array<String?> {
         context.packageManager.getApplicationInfo(
             context.packageName,
             PackageManager.GET_META_DATA
         ).metaData?.let { manifest ->
-            return arrayOf<String?>(
+            return arrayOf(
                 manifest.getString(TapsellManifestKeys.TAPSELL_APP_ID),
                 manifest.getString(TapsellManifestKeys.ADMOB_APP_ID),
-                manifest.getString(TapsellManifestKeys.APPLOVIN_APP_ID)
             )
         }
         return emptyArray()

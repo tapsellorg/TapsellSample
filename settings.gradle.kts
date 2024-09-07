@@ -12,6 +12,8 @@ dependencyResolutionManagement {
         google()
         mavenLocal()
         mavenCentral()
+        maven("https://jitpack.io")
+        maven("https://maven.myket.ir")
         maven("https://android-sdk.is.com")
         maven("https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea")
         maven("https://cboost.jfrog.io/artifactory/chartboost-mediation")

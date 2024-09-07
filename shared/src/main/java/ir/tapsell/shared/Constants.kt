@@ -79,7 +79,5 @@ object TestTags {
 
 object TapsellManifestKeys {
     const val TAPSELL_APP_ID = "ir.tapsell.mediation.APPLICATION_KEY"
-    const val TAPSELL_APP_MARKET = "ir.tapsell.mediation.APPLICATION_MARKET"
     const val ADMOB_APP_ID = "com.google.android.gms.ads.APPLICATION_ID"
-    const val APPLOVIN_APP_ID = "applovin.sdk.key"
 }

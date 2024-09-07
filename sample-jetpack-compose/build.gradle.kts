@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
@@ -6,12 +8,12 @@ plugins {
 
 android {
     namespace = "ir.tapsell.sample"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "ir.tapsell.sample"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -24,11 +26,8 @@ android {
 
         addManifestPlaceholders(
             mapOf(
-                "TapsellMediationAppMarket" to "CafeBazaar",
                 "TapsellMediationAppKey" to "76798342-99a7-4a5f-bf5a-60a088d5dcfb",
                 "TapsellMediationAdmobAdapterSignature" to "ca-app-pub-3940256099942544~3347511713",
-                "TapsellMediationApplovinAdapterSignature" to
-                        "5WfZLCGTQmDr6Mf7BBEf5blVwrf8VBMJSmwUSq9-1q5bPpCH_OGAWEP2z2lRkmonLgPzG6gbL4DlvUF9frFmt6",
             )
         )
     }
@@ -72,7 +71,11 @@ android {
         buildConfig = true
     }
     composeCompiler {
-        enableStrongSkippingMode = true
+        includeSourceInformation = true
+        featureFlags = setOf(
+            ComposeFeatureFlag.StrongSkipping,
+            ComposeFeatureFlag.OptimizeNonSkippingGroups
+        )
         reportsDestination = layout.buildDirectory.dir("compose_compiler")
         stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
     }
