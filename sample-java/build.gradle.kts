@@ -70,6 +70,7 @@ android {
 dependencies {
 
     implementation(libs.appcompat)
+    implementation(libs.activity)
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation(project(":shared"))
