@@ -107,6 +107,7 @@ dependencies {
     implementation(libs.adapter.ironsource)
     implementation(libs.adapter.liftoff)
     implementation(libs.adapter.mintegral)
+    implementation(libs.adapter.yandex)
     implementation(libs.adapter.chartboost)
     implementation(libs.adapter.wortise)
 
