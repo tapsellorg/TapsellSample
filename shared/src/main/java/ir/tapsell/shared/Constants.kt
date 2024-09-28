@@ -62,6 +62,12 @@ object WortiseKeys {
     const val NATIVE = "88eab80b-113b-4856-8dc2-4aa571c4d7c3\n"
     const val BANNER = "ddd6c321-1f1f-4396-8524-a4f760063b2f"
 }
+object YandexKeys {
+    const val REWARDED = "27891b5b-1ff5-48f2-98ad-096cfc2dda1a"
+    const val INTERSTITIAL = "e0695171-a079-40c6-9dce-1b31ac2bce15"
+    const val NATIVE = "26ac2ef1-5968-43c2-889b-bf36d68368c4"
+    const val BANNER = "d088d32c-47ce-4df8-9b2c-184716c77ec0"
+}
 
 const val MULTIPLE_NATIVE_REQUESTS_COUNT = 5
 
