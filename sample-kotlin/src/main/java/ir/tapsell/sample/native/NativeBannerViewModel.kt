@@ -33,8 +33,6 @@ class NativeBannerViewModel : BaseViewModel() {
             if (count > 1) Tapsell.requestMultipleNativeAds(zoneId, count, listener)
             else Tapsell.requestNativeAd(zoneId, listener)
         }
-
-
     }
 
     fun showAd(activity: FragmentActivity, container: NativeAdViewContainer) {

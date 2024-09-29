@@ -1,21 +1,22 @@
 [versions]
-agp = "8.5.0"
-kotlin = "2.0.0"
+agp = "8.6.1"
+kotlin = "2.0.20"
 core-ktx = "1.13.1"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.2.1"
 espresso-core = "3.6.1"
 appcompat = "1.7.0"
-leakcanary = "2.13"
+leakcanary = "2.14"
 material = "1.12.0"
 constraintlayout = "2.1.4"
-navigation-fragment-ktx = "2.7.7"
-tapsell = "1.0.1-beta07"
-lifecycle-livedata-ktx = "2.8.0"
-lifecycle-viewmodel-ktx = "2.8.0"
-lifecycle-runtime-ktx = "2.8.0"
-activity-compose = "1.9.0"
-compose-bom = "2024.06.00"
+navigation-fragment-ktx = "2.8.1"
+tapsell = "1.0.1-beta08"
+lifecycle-livedata-ktx = "2.8.6"
+lifecycle-viewmodel-ktx = "2.8.6"
+lifecycle-runtime-ktx = "2.8.6"
+activity = "1.9.2"
+activity-compose = "1.9.2"
+compose-bom = "2024.09.02"
 coil = "2.6.0"
 
 [libraries]
@@ -39,9 +40,12 @@ adapter-fyber = { module = "ir.tapsell.mediation.adapter:fyber", version.ref = "
 adapter-applovin = { module = "ir.tapsell.mediation.adapter:applovin", version.ref = "tapsell" }
 adapter-ironsource = { module = "ir.tapsell.mediation.adapter:ironsource", version.ref = "tapsell" }
 adapter-liftoff = { module = "ir.tapsell.mediation.adapter:liftoff", version.ref = "tapsell" }
+adapter-yandex = { module = "ir.tapsell.mediation.adapter:yandex", version.ref = "tapsell" }
 adapter-chartboost = { module = "ir.tapsell.mediation.adapter:chartboost", version.ref = "tapsell" }
 adapter-wortise = { module = "ir.tapsell.mediation.adapter:wortise", version.ref = "tapsell" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 ui = { group = "androidx.compose.ui", name = "ui" }

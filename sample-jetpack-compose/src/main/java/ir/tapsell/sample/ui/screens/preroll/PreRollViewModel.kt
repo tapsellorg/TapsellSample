@@ -54,12 +54,12 @@ class PreRollViewModel : BaseViewModel() {
             addLog("preRollAds is empty")
             return
         }
-        val responseId = preRollAds.removeFirst()
+        val responseId = preRollAds.shuffled().single().also { preRollAds.remove(it) }
         Tapsell.showPreRollAd(
             responseId,
             object : AdStateListener.PreRoll {
-                override fun onVastAvailable(vastUrl: String) {
-                    log(TAG, "onVastAvailable: $vastUrl")
+                override fun onVastAvailable(value: String) {
+                    log(TAG, "onVastAvailable: $value")
                 }
 
                 override fun onAdImpression() {
