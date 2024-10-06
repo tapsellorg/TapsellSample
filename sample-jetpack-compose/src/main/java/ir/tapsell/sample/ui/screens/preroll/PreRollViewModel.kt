@@ -12,7 +12,7 @@ import ir.tapsell.mediation.ad.request.RequestResultListener
 import ir.tapsell.mediation.ad.show.AdShowCompletionState
 import ir.tapsell.sample.base.BaseViewModel
 import ir.tapsell.sample.model.PreRollContainer
-import ir.tapsell.shared.TapsellMediationKeys
+import ir.tapsell.shared.TapsellKeys.TapsellMediationKeys
 
 class PreRollViewModel : BaseViewModel() {
 
@@ -27,7 +27,7 @@ class PreRollViewModel : BaseViewModel() {
         adViewContainer.value?.let { adContainer ->
             adContainer.playerView.player = exoplayer
             Tapsell.requestPreRollAd(
-                TapsellMediationKeys.PRE_ROLL,
+                TapsellMediationKeys.preRoll,
                 adContainer.player,
                 adContainer.companion,
                 adContainer.playerView,

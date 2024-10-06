@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import ir.tapsell.sample.databinding.FragmentInterstitialBinding
-import ir.tapsell.shared.TapsellMediationKeys
+import ir.tapsell.sample.utils.addChip
+import ir.tapsell.shared.TapsellAdNetworks
+import ir.tapsell.shared.TapsellKeys.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -29,7 +31,13 @@ class InterstitialFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.inputZone.setText(TapsellMediationKeys.INTERSTITIAL)
+        TapsellAdNetworks.map { adNetwork ->
+            binding.chipAdNetworks.addChip(requireContext(), adNetwork.name) {
+                binding.inputZone.setText(adNetwork.interstitial)
+            }
+        }
+
+        binding.inputZone.setText(TapsellMediationKeys.interstitial)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }

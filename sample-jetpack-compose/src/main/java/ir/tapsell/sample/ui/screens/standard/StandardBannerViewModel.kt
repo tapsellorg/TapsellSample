@@ -11,8 +11,7 @@ import ir.tapsell.mediation.ad.request.BannerSize
 import ir.tapsell.mediation.ad.request.RequestResultListener
 import ir.tapsell.mediation.ad.views.banner.BannerContainer
 import ir.tapsell.sample.base.BaseViewModel
-import ir.tapsell.shared.TapsellMediationKeys
-
+import ir.tapsell.shared.TapsellKeys.TapsellMediationKeys
 
 class StandardBannerViewModel : BaseViewModel() {
 
@@ -30,7 +29,7 @@ class StandardBannerViewModel : BaseViewModel() {
 
     fun requestAd() {
         Tapsell.requestBannerAd(
-            TapsellMediationKeys.BANNER, bannerSize,
+            TapsellMediationKeys.banner, bannerSize,
             object : RequestResultListener {
                 override fun onFailure() {
                     log(TAG, "onFailure", Log.ERROR)

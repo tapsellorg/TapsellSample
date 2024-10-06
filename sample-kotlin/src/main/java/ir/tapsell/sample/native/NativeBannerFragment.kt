@@ -11,8 +11,10 @@ import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.R
 import ir.tapsell.sample.databinding.FragmentNativeBannerBinding
+import ir.tapsell.sample.utils.addChip
 import ir.tapsell.shared.MULTIPLE_NATIVE_REQUESTS_COUNT
-import ir.tapsell.shared.TapsellMediationKeys
+import ir.tapsell.shared.TapsellNativeAdNetworks
+import ir.tapsell.shared.TapsellKeys.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -33,7 +35,13 @@ class NativeBannerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.inputZone.setText(TapsellMediationKeys.NATIVE)
+        TapsellNativeAdNetworks.map { adNetwork ->
+            binding.chipAdNetworks.addChip(requireContext(), adNetwork.name) {
+                binding.inputZone.setText(adNetwork.native)
+            }
+        }
+
+        binding.inputZone.setText(TapsellMediationKeys.native)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }

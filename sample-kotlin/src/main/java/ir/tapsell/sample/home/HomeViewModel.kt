@@ -35,7 +35,7 @@ class HomeViewModel : ViewModel() {
             view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
                 .setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    activity.getResources().getDimension(R.dimen.h7)
+                    activity.resources.getDimension(R.dimen.h7)
                 )
             show()
         }

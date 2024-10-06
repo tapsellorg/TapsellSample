@@ -14,7 +14,9 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import ir.tapsell.sample.databinding.FragmentPrerollBinding
-import ir.tapsell.shared.TapsellMediationKeys
+import ir.tapsell.sample.utils.addChip
+import ir.tapsell.shared.TapsellPreRollAdNetworks
+import ir.tapsell.shared.TapsellKeys.LegacyKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -37,7 +39,13 @@ class PreRollFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.inputZone.setText(TapsellMediationKeys.PRE_ROLL)
+        TapsellPreRollAdNetworks.map { adNetwork ->
+            binding.chipAdNetworks.addChip(requireContext(), adNetwork.name) {
+                binding.inputZone.setText(adNetwork.preRoll)
+            }
+        }
+        binding.inputZone.setText(LegacyKeys.preRoll)
+
         binding.btnRequest.setOnClickListener {
             requestAd()
         }

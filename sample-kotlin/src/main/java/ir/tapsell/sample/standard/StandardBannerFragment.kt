@@ -11,7 +11,9 @@ import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.request.BannerSize
 import ir.tapsell.mediation.ad.views.banner.BannerContainer
 import ir.tapsell.sample.databinding.FragmentStandardBannerBinding
-import ir.tapsell.shared.AdmobKeys
+import ir.tapsell.sample.utils.addChip
+import ir.tapsell.shared.TapsellAdNetworks
+import ir.tapsell.shared.TapsellKeys.TapsellMediationKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -32,7 +34,12 @@ class StandardBannerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.inputZone.setText(AdmobKeys.BANNER)
+        TapsellAdNetworks.map { adNetwork ->
+            binding.chipAdNetworks.addChip(requireContext(), adNetwork.name) {
+                binding.inputZone.setText(adNetwork.banner)
+            }
+        }
+        binding.inputZone.setText(TapsellMediationKeys.banner)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }

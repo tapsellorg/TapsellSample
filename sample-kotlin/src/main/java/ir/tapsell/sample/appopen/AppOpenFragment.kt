@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import ir.tapsell.sample.databinding.FragmentInterstitialBinding
-import ir.tapsell.shared.AdmobKeys
+import ir.tapsell.sample.utils.addChip
+import ir.tapsell.shared.TapsellAppOpenAdNetworks
+import ir.tapsell.shared.TapsellKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -29,7 +31,12 @@ class AppOpenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.inputZone.setText(AdmobKeys.APP_OPEN)
+        TapsellAppOpenAdNetworks.map { adNetwork ->
+            binding.chipAdNetworks.addChip(requireContext(), adNetwork.name) {
+                binding.inputZone.setText(adNetwork.appOpen)
+            }
+        }
+        binding.inputZone.setText(TapsellKeys.YandexKeys.appOpen)
         binding.btnRequest.setOnClickListener {
             requestAd()
         }
