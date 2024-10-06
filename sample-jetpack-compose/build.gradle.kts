@@ -95,6 +95,8 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.google.appset)
+    implementation(libs.google.ads.identifier)
     implementation(project(":shared"))
 
     implementation(libs.tapsell)

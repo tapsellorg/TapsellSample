@@ -73,6 +73,8 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+    implementation(libs.google.appset)
+    implementation(libs.google.ads.identifier)
     implementation(project(":shared"))
 
     implementation(libs.tapsell)

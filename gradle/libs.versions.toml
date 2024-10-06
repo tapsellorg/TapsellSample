@@ -10,6 +10,8 @@ leakcanary = "2.14"
 material = "1.12.0"
 constraintlayout = "2.1.4"
 navigation-fragment-ktx = "2.8.1"
+google-appset = "16.1.0"
+google-ads-identifier = "18.1.0"
 tapsell = "1.0.1-beta08"
 lifecycle-livedata-ktx = "2.8.6"
 lifecycle-viewmodel-ktx = "2.8.6"
@@ -30,6 +32,8 @@ material = { group = "com.google.android.material", name = "material", version.r
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+google-ads-identifier = { module = "com.google.android.gms:play-services-ads-identifier", version.ref = "google-ads-identifier" }
+google-appset = { module = "com.google.android.gms:play-services-appset", version.ref = "google-appset" }
 tapsell = { module = "ir.tapsell.mediation:tapsell", version.ref = "tapsell" }
 adapter-legacy = { module = "ir.tapsell.mediation.adapter:legacy", version.ref = "tapsell" }
 adapter-legacy-ima-extension = { module = "ir.tapsell.mediation.adapter:legacy-ima-extension", version.ref = "tapsell" }
