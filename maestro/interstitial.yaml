@@ -1,0 +1,34 @@
+appId: ir.tapsell.sample
+---
+- launchApp:
+    appId: ir.tapsell.sample
+    clearState: true
+- startRecording: Interstitial
+- extendedWaitUntil:
+    visible: "onInitializationComplete.*"
+    timeout: 15000
+- tapOn:
+    text: Interstitial
+- tapOn:
+      text: Yandex
+      repeat: 1
+      delay: 2000
+- tapOn:
+    text: Request
+    repeat: 1
+    delay: 5000
+- extendedWaitUntil:
+    visible: .*onSuccess.*
+    timeout: 5000
+- tapOn:
+    text: Show
+    waitToSettleTimeoutMs: 2000
+- back
+- back
+- assertVisible:
+    text: .*onAdImpression.*
+- assertVisible:
+    text: .*onAdClosed.*
+- stopRecording
+- takeScreenshot: maestro-outputs/Interstitial
+- stopApp

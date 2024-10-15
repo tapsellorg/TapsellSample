@@ -1,0 +1,30 @@
+appId: ir.tapsell.sample
+---
+- launchApp:
+    appId: ir.tapsell.sample
+    clearState: true
+- startRecording: Native
+- extendedWaitUntil:
+      visible: "onInitializationComplete.*"
+      timeout: 15000
+- tapOn:
+    text: Native Banner
+- tapOn:
+      text: Tapsell Legacy
+      repeat: 1
+      delay: 2000
+- tapOn:
+    text: Multiple Request.*
+    repeat: 1
+    delay: 5000
+- extendedWaitUntil:
+    visible: .*onSuccess.*
+    timeout: 5000
+- tapOn:
+    text: Show
+    waitToSettleTimeoutMs: 2000
+- assertVisible:
+    text: .*onAdImpression.*
+- stopRecording
+- takeScreenshot: maestro-outputs/Native
+- stopApp
