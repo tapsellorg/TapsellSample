@@ -18,6 +18,8 @@ class NativeBannerViewModel : BaseViewModel() {
 
     var responseIds = hashSetOf<String>()
         private set
+    var isNativeVideo = false
+        private set
 
     fun requestAd(zoneId: String, count: Int = 1) {
         object : RequestResultListener {
@@ -67,5 +69,9 @@ class NativeBannerViewModel : BaseViewModel() {
                     }
                 })
         }
+    }
+
+    fun setNativeVideo(isNativeVideo: Boolean) {
+        this.isNativeVideo = isNativeVideo
     }
 }

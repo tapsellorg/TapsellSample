@@ -13,8 +13,9 @@ import ir.tapsell.sample.R
 import ir.tapsell.sample.databinding.FragmentNativeBannerBinding
 import ir.tapsell.sample.utils.addChip
 import ir.tapsell.shared.MULTIPLE_NATIVE_REQUESTS_COUNT
-import ir.tapsell.shared.TapsellNativeAdNetworks
+import ir.tapsell.shared.TapsellKeys
 import ir.tapsell.shared.TapsellKeys.TapsellMediationKeys
+import ir.tapsell.shared.TapsellNativeAdNetworks
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -38,6 +39,11 @@ class NativeBannerFragment : Fragment() {
         TapsellNativeAdNetworks.map { adNetwork ->
             binding.chipAdNetworks.addChip(requireContext(), adNetwork.name) {
                 binding.inputZone.setText(adNetwork.native)
+                updateZoneInput(adNetwork)
+                binding.tvSwitchNativeVideo.setOnClickListener {
+                    binding.switchNativeType.isChecked = binding.switchNativeType.isChecked.not()
+                    updateZoneInput(adNetwork)
+                }
             }
         }
 
@@ -55,6 +61,20 @@ class NativeBannerFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.Main) {
             viewModel.logMessage.collect {
                 binding.tvLog.text = it
+            }
+        }
+    }
+
+    /**
+     * handle native video and native banner
+     */
+    private fun updateZoneInput(adNetwork: TapsellKeys) {
+        if (binding.switchNativeType.isChecked) {
+            // Native video is only available for `TapsellMediationKeys` and `LegacyKeys`
+            when (adNetwork) {
+                is TapsellMediationKeys -> binding.inputZone.setText(adNetwork.nativeVideo)
+                is TapsellKeys.LegacyKeys -> binding.inputZone.setText(adNetwork.nativeVideo)
+                else -> binding.inputZone.setText(adNetwork.native)
             }
         }
     }

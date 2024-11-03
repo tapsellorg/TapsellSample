@@ -8,6 +8,7 @@ rm -rf maestro-outputs
 maestro test rewarded.yaml
 maestro test interstitial.yaml
 maestro test native.yaml
+maestro test native-video.yaml
 maestro test native-multiple.yaml
 maestro test standard.yaml
 maestro test preroll.yaml

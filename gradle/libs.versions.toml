@@ -9,17 +9,18 @@ appcompat = "1.7.0"
 leakcanary = "2.14"
 material = "1.12.0"
 constraintlayout = "2.1.4"
-navigation-fragment-ktx = "2.8.1"
+navigation-fragment-ktx = "2.8.2"
 google-appset = "16.1.0"
 google-ads-identifier = "18.1.0"
-tapsell = "1.0.1-beta08"
+tapsell = "1.0.1-beta09"
 lifecycle-livedata-ktx = "2.8.6"
 lifecycle-viewmodel-ktx = "2.8.6"
 lifecycle-runtime-ktx = "2.8.6"
 activity = "1.9.2"
 activity-compose = "1.9.2"
-compose-bom = "2024.09.02"
+compose-bom = "2024.09.03"
 coil = "2.6.0"
+appium = "9.3.0"
 
 [libraries]
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-fragment-ktx" }
@@ -60,6 +61,9 @@ ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 material3 = { group = "androidx.compose.material3", name = "material3" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+
+appium = { module = "io.appium:java-client", version.ref = "appium" }
+
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
