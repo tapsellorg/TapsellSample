@@ -32,12 +32,14 @@ sealed interface TapsellKeys : TapsellAdTypes {
         override val interstitial get() = INTERSTITIAL
         override val appOpen get() = APP_OPEN
         override val banner get() = BANNER
-        override val native get() = NATIVE
+        override val native get() = NATIVE_BANNER
+        val nativeVideo get() = NATIVE_VIDEO
         override val preRoll get() = PRE_ROLL
         private const val REWARDED = "1d710cc7-5e96-46ac-a3e9-8463300333e6"
         private const val INTERSTITIAL = "b3972749-f62a-475a-9ff2-cfc9e2a40f87"
         private const val APP_OPEN = NO_SUPPORT_KEY
-        private const val NATIVE = "d217e3e6-0070-4120-925d-5d39d0298893"
+        private const val NATIVE_BANNER = "d217e3e6-0070-4120-925d-5d39d0298893"
+        private const val NATIVE_VIDEO = "f3fb937a-bb3d-4e54-8d4c-2f4aa963c74c"
         private const val BANNER = "e3d5999c-5990-4e31-8ce9-642ce040a7f4"
         private const val PRE_ROLL = "6977a96f-e265-4895-b219-33bb6ba3df85"
     }
@@ -47,11 +49,13 @@ sealed interface TapsellKeys : TapsellAdTypes {
         override val rewarded get() = REWARDED
         override val interstitial get() = INTERSTITIAL
         override val banner get() = BANNER
-        override val native get() = NATIVE
+        override val native get() = NATIVE_BANNER
         override val preRoll get() = PRE_ROLL
+        val nativeVideo get() = NATIVE_VIDEO
         private const val REWARDED = "63b92f04-3d0f-4805-84a4-abeccf4edc18"
         private const val INTERSTITIAL = "0c4e2849-feea-4688-8280-0b0ae2ee0728"
-        private const val NATIVE = "b1b92bca-8a54-4b82-9f53-90ea2b1a912c"
+        private const val NATIVE_BANNER = "b1b92bca-8a54-4b82-9f53-90ea2b1a912c"
+        private const val NATIVE_VIDEO = "236e51ac-4fed-4263-b50a-7240558c73cb"
         private const val BANNER = "4bf4e11d-0967-41e6-91f6-a128d9462f2a"
         private const val PRE_ROLL = "628f60d7-8fd0-4aea-a840-2d2947121dd5"
     }

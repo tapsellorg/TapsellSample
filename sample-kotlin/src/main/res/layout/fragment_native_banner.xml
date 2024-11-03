@@ -15,12 +15,35 @@
         app:selectionRequired="true"
         app:singleSelection="true" />
 
+    <LinearLayout
+        android:id="@+id/ly_switch_native_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_adNetworks">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_switch_native_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/h5"
+            android:text="@string/native_video" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switch_native_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false" />
+    </LinearLayout>
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/request"
         android:layout_marginVertical="8dp"
+        android:text="@string/request"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
