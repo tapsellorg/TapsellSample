@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.request.BannerSize
 import ir.tapsell.mediation.ad.views.banner.BannerContainer
+import ir.tapsell.sample.R
 import ir.tapsell.sample.databinding.FragmentStandardBannerBinding
 import ir.tapsell.sample.utils.addChip
 import ir.tapsell.shared.TapsellAdNetworks
@@ -33,6 +35,8 @@ class StandardBannerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title =
+            resources.getString(R.string.standard_banner)
 
         TapsellAdNetworks.map { adNetwork ->
             binding.chipAdNetworks.addChip(requireContext(), adNetwork.name) {

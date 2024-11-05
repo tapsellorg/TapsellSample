@@ -146,7 +146,7 @@ sealed interface TapsellKeys : TapsellAdTypes {
         override val native get() = NATIVE
         private const val REWARDED = "4fcf71a4-afd1-412d-9b19-46dd85644f9d"
         private const val INTERSTITIAL = "4d268df4-7e8a-43d8-a014-02b4aeff1e72"
-        private const val NATIVE = "88eab80b-113b-4856-8dc2-4aa571c4d7c3\n"
+        private const val NATIVE = "88eab80b-113b-4856-8dc2-4aa571c4d7c3"
         private const val BANNER = "ddd6c321-1f1f-4396-8524-a4f760063b2f"
     }
 
