@@ -8,7 +8,7 @@ appId: ir.tapsell.sample
       visible: "onInitializationComplete.*"
       timeout: 15000
 - tapOn:
-    text: Native Banner
+    text: Native
 - tapOn:
       text: Tapsell Legacy
       repeat: 1
