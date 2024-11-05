@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/space_small"
-        android:text="@string/native_banner"
+        android:text="@string/native_ad"
         app:layout_constraintBottom_toTopOf="@+id/btn_standard_banner"
         app:layout_constraintTop_toBottomOf="@+id/btn_app_open" />
 
