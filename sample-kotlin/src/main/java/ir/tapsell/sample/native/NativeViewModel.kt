@@ -2,6 +2,7 @@ package ir.tapsell.sample.native
 
 import android.util.Log
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.viewModelScope
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.AdStateListener
 import ir.tapsell.mediation.ad.request.RequestResultListener
@@ -9,17 +10,28 @@ import ir.tapsell.mediation.ad.views.ntv.NativeAdView
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.BaseViewModel
 import ir.tapsell.sample.R
+import ir.tapsell.shared.TapsellKeys
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
-class NativeBannerViewModel : BaseViewModel() {
+class NativeViewModel : BaseViewModel() {
 
     companion object {
-        private const val TAG = "NativeBannerViewModel"
+        private const val TAG = "NativeViewModel"
     }
 
     var responseIds = hashSetOf<String>()
         private set
-    var isNativeVideo = false
+    var shownIds = hashSetOf<String>()
         private set
+
+    val selectedAdNetwork = MutableStateFlow<TapsellKeys>(TapsellKeys.TapsellMediationKeys)
+
+    override fun onCleared() {
+        super.onCleared()
+        destroyAd()
+    }
 
     fun requestAd(zoneId: String, count: Int = 1) {
         object : RequestResultListener {
@@ -65,13 +77,21 @@ class NativeBannerViewModel : BaseViewModel() {
                     }
 
                     override fun onAdImpression() {
+                        shownIds.add(id)
                         log(TAG, "onAdImpression")
                     }
                 })
         }
     }
 
-    fun setNativeVideo(isNativeVideo: Boolean) {
-        this.isNativeVideo = isNativeVideo
+    fun updateSelectedAdNetwork(adNetwork: TapsellKeys) = viewModelScope.launch {
+        selectedAdNetwork.update { adNetwork }
+    }
+
+    fun destroyAd() {
+        log(TAG, "destroyAd")
+        shownIds.forEach(Tapsell::destroyNativeAd)
+        shownIds.clear()
+
     }
 }

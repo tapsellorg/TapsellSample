@@ -8,10 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
-import ir.tapsell.sample.R
-import ir.tapsell.sample.databinding.FragmentNativeBannerBinding
+import ir.tapsell.sample.*
+import ir.tapsell.sample.databinding.FragmentNativeBinding
 import ir.tapsell.sample.utils.addChip
 import ir.tapsell.shared.MULTIPLE_NATIVE_REQUESTS_COUNT
 import ir.tapsell.shared.TapsellKeys
@@ -20,17 +19,18 @@ import ir.tapsell.shared.TapsellNativeAdNetworks
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NativeBannerFragment : Fragment() {
 
-    private var _binding: FragmentNativeBannerBinding? = null
+class NativeFragment : Fragment() {
+
+    private var _binding: FragmentNativeBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<NativeBannerViewModel>()
+    private val viewModel by viewModels<NativeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentNativeBannerBinding.inflate(inflater, container, false)
+        _binding = FragmentNativeBinding.inflate(inflater, container, false)
         return _binding?.root
     }
 
@@ -42,16 +42,23 @@ class NativeBannerFragment : Fragment() {
 
         TapsellNativeAdNetworks.map { adNetwork ->
             binding.chipAdNetworks.addChip(requireContext(), adNetwork.name) {
-                binding.inputZone.setText(adNetwork.native)
-                updateZoneInput(adNetwork)
-                binding.tvSwitchNativeVideo.setOnClickListener {
-                    binding.switchNativeType.isChecked = binding.switchNativeType.isChecked.not()
-                    updateZoneInput(adNetwork)
+                viewModel.updateSelectedAdNetwork(adNetwork)
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.selectedAdNetwork.collect { adNetwork ->
+                updateZoneInput(adNetwork, binding.switchNativeType.isChecked)
+                binding.switchNativeType.setOnCheckedChangeListener { _, isChecked ->
+                    updateZoneInput(adNetwork, isChecked)
                 }
             }
         }
 
-        binding.inputZone.setText(TapsellMediationKeys.native)
+        binding.tvSwitchNativeVideo.setOnClickListener {
+            binding.switchNativeType.isChecked = binding.switchNativeType.isChecked.not()
+        }
+
         binding.btnRequest.setOnClickListener {
             requestAd()
         }
@@ -61,6 +68,9 @@ class NativeBannerFragment : Fragment() {
         binding.btnShow.setOnClickListener {
             showAd()
         }
+        binding.btnDestroy.setOnClickListener {
+            destroyAd()
+        }
 
         lifecycleScope.launch(Dispatchers.Main) {
             viewModel.logMessage.collect {
@@ -69,18 +79,15 @@ class NativeBannerFragment : Fragment() {
         }
     }
 
-    /**
-     * handle native video and native banner
-     */
-    private fun updateZoneInput(adNetwork: TapsellKeys) {
-        if (binding.switchNativeType.isChecked) {
+    private fun updateZoneInput(adNetwork: TapsellKeys, isNativeVideo: Boolean = false) {
+        if (isNativeVideo) {
             // Native video is only available for `TapsellMediationKeys` and `LegacyKeys`
             when (adNetwork) {
                 is TapsellMediationKeys -> binding.inputZone.setText(adNetwork.nativeVideo)
                 is TapsellKeys.LegacyKeys -> binding.inputZone.setText(adNetwork.nativeVideo)
                 else -> binding.inputZone.setText(adNetwork.native)
             }
-        }
+        } else binding.inputZone.setText(adNetwork.native)
     }
 
     private fun requestAd(count: Int = 1) {
@@ -94,9 +101,7 @@ class NativeBannerFragment : Fragment() {
         viewModel.showAd(requireActivity(), it)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-        viewModel.responseIds.forEach(Tapsell::destroyNativeAd)
+    private fun destroyAd() {
+        viewModel.destroyAd()
     }
 }

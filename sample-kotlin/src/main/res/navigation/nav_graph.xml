@@ -72,9 +72,9 @@
 
     <fragment
         android:id="@+id/fragment_native_banner"
-        android:name="ir.tapsell.sample.native.NativeBannerFragment"
+        android:name="ir.tapsell.sample.native.NativeFragment"
         android:label="@string/native_banner"
-        tools:layout="@layout/fragment_native_banner" />
+        tools:layout="@layout/fragment_native" />
 
     <fragment
         android:id="@+id/fragment_preroll"
