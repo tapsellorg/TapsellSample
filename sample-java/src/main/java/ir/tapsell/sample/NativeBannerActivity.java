@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import ir.tapsell.mediation.Tapsell;
 import ir.tapsell.mediation.ad.AdStateListener;
 import ir.tapsell.mediation.ad.request.RequestResultListener;
+import ir.tapsell.mediation.ad.show.AdShowCompletionState;
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer;
 import ir.tapsell.shared.TapsellKeys.TapsellMediationKeys;
 
@@ -87,6 +88,11 @@ public class NativeBannerActivity extends AppCompatActivity {
                     @Override
                     public void onAdFailed(@NonNull String message) {
                         log("onAdFailed" + message, Log.ERROR);
+                    }
+
+                    @Override
+                    public void onAdClosed(@NonNull AdShowCompletionState adShowCompletionState) {
+                        log("onAdClosed: " + adShowCompletionState.name(), Log.DEBUG);
                     }
                 });
         showButton.setEnabled(false);

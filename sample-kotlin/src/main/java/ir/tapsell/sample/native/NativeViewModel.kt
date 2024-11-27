@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.AdStateListener
 import ir.tapsell.mediation.ad.request.RequestResultListener
+import ir.tapsell.mediation.ad.show.AdShowCompletionState
 import ir.tapsell.mediation.ad.views.ntv.NativeAdView
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.BaseViewModel
@@ -79,6 +80,10 @@ class NativeViewModel : BaseViewModel() {
                     override fun onAdImpression() {
                         shownIds.add(id)
                         log(TAG, "onAdImpression")
+                    }
+
+                    override fun onAdClosed(completionState: AdShowCompletionState) {
+                        log(TAG, "onAdClosed: ${completionState.name}")
                     }
                 })
         }
