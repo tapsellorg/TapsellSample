@@ -70,8 +70,7 @@ class StandardBannerFragment : Fragment() {
 
     private fun requestAd() {
         viewModel.requestAd(
-            binding.inputZone.text.toString(),
-            BannerSize.BANNER_ADAPTIVE
+            binding.inputZone.text.toString()
         )
     }
 
