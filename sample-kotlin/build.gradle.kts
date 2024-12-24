@@ -84,6 +84,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.kotlin.reflect)
     implementation(libs.coil)
     implementation(libs.google.appset)
     implementation(libs.google.ads.identifier)

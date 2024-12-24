@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -43,6 +44,15 @@ class StandardBannerFragment : Fragment() {
                 binding.inputZone.setText(adNetwork.banner)
             }
         }
+        binding.spinnerBannerSizes.apply {
+            adapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_dropdown_item,
+                viewModel.tapsellBannerSizes
+            )
+            onItemSelectedListener = viewModel.spinnerItemSelectedListener
+            setSelection(BannerSize.valueOf(BannerSize.BANNER_300_250.name).ordinal)
+        }
         binding.inputZone.setText(TapsellMediationKeys.banner)
         binding.btnRequest.setOnClickListener {
             requestAd()
@@ -60,8 +70,7 @@ class StandardBannerFragment : Fragment() {
 
     private fun requestAd() {
         viewModel.requestAd(
-            binding.inputZone.text.toString(),
-            BannerSize.BANNER_ADAPTIVE
+            binding.inputZone.text.toString()
         )
     }
 

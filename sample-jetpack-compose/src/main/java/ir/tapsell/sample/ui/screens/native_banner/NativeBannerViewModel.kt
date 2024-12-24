@@ -8,6 +8,7 @@ import androidx.compose.runtime.setValue
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.AdStateListener
 import ir.tapsell.mediation.ad.request.RequestResultListener
+import ir.tapsell.mediation.ad.show.AdShowCompletionState
 import ir.tapsell.mediation.ad.views.ntv.NativeAdView
 import ir.tapsell.mediation.ad.views.ntv.NativeAdViewContainer
 import ir.tapsell.sample.R
@@ -79,6 +80,10 @@ class NativeBannerViewModel : BaseViewModel() {
                     override fun onAdImpression() {
                         isDestroyButtonEnabled = true
                         log(TAG, "onAdImpression")
+                    }
+
+                    override fun onAdClosed(completionState: AdShowCompletionState) {
+                        log(TAG, "onAdClosed: ${completionState.name}")
                     }
                 })
             isShowButtonEnabled = false
