@@ -15,6 +15,14 @@
         app:selectionRequired="true"
         app:singleSelection="true" />
 
+    <Spinner
+        android:id="@+id/spinner_banner_sizes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/chip_adNetworks"
+        app:selectionRequired="true"
+        app:singleSelection="true" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_request"

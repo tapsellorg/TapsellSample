@@ -33,6 +33,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 google-ads-identifier = { module = "com.google.android.gms:play-services-ads-identifier", version.ref = "google-ads-identifier" }
 google-appset = { module = "com.google.android.gms:play-services-appset", version.ref = "google-appset" }
 tapsell = { module = "ir.tapsell.mediation:tapsell", version.ref = "tapsell" }

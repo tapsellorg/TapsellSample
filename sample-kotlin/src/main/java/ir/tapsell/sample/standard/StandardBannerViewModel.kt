@@ -1,6 +1,8 @@
 package ir.tapsell.sample.standard
 
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import androidx.fragment.app.FragmentActivity
 import ir.tapsell.mediation.Tapsell
 import ir.tapsell.mediation.ad.AdStateListener
@@ -18,8 +20,18 @@ class StandardBannerViewModel : BaseViewModel() {
     var responseId: String? = null
         private set
 
-    fun requestAd(zoneId: String, bannerSize: BannerSize) {
-        Tapsell.requestBannerAd(zoneId, bannerSize, object : RequestResultListener {
+    val tapsellBannerSizes = BannerSize.values()
+    private var selectedBannerSize = BannerSize.BANNER_320_50
+
+    val spinnerItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            selectedBannerSize = tapsellBannerSizes[position]
+        }
+        override fun onNothingSelected(parent: AdapterView<*>?) {}
+    }
+
+    fun requestAd(zoneId: String) {
+        Tapsell.requestBannerAd(zoneId, selectedBannerSize, object : RequestResultListener {
             override fun onFailure() {
                 log(TAG, "onFailure", Log.ERROR)
             }
