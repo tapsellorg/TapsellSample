@@ -2,6 +2,7 @@ package ir.tapsell.sample.ui.screens.standard
 
 import android.app.Activity
 import android.view.LayoutInflater
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,7 +19,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,7 +35,7 @@ fun StandardBannerScreen(
     modifier: Modifier = Modifier,
     viewModel: StandardBannerViewModel = viewModel()
 ) {
-    val context = LocalContext.current as Activity
+    val context = LocalActivity.current as Activity
     val logMessage by viewModel.logMessage.collectAsState()
 
     DisposableEffect(Unit) {
@@ -98,13 +98,13 @@ private fun TapsellStandardBannerView(
     modifier: Modifier = Modifier,
     onUpdate: (BannerContainer) -> Unit = {},
 ) {
-    val context = LocalContext.current as Activity
-    val container = BannerContainer(context)
+    val activity = LocalActivity.current as Activity
+    val container = BannerContainer(activity)
     AndroidView(
         modifier = modifier,
         factory = {
             val view =
-                LayoutInflater.from(context)
+                LayoutInflater.from(activity)
                     .inflate(R.layout.banner_container, container, true)
             onUpdate(view as BannerContainer)
             view

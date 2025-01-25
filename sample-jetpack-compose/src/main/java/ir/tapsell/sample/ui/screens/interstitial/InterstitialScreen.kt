@@ -1,6 +1,6 @@
 package ir.tapsell.sample.ui.screens.interstitial
 
-import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,7 +15,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,7 +28,7 @@ fun InterstitialScreen(
     modifier: Modifier = Modifier,
     viewModel: InterstitialViewModel = viewModel()
 ) {
-    val context = LocalContext.current as Activity
+    val activity = LocalActivity.current
     val logMessage by viewModel.logMessage.collectAsState()
 
     Scaffold(
@@ -60,7 +59,7 @@ fun InterstitialScreen(
             Button(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = viewModel.isShowButtonEnabled,
-                onClick = { viewModel.showAd(context) }
+                onClick = { viewModel.showAd(activity) }
             ) {
                 Text(text = stringResource(R.string.show))
             }

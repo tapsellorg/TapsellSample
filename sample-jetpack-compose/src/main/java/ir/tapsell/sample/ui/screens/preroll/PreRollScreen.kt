@@ -3,6 +3,7 @@ package ir.tapsell.sample.ui.screens.preroll
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,7 +19,6 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -37,7 +37,7 @@ fun PreRollScreen(
     modifier: Modifier = Modifier,
     viewModel: PreRollViewModel = viewModel()
 ) {
-    val context = LocalContext.current as Activity
+    val context = LocalActivity.current as Activity
     val exoplayer = remember(viewModel.adViewContainer) {
         ExoPlayer.Builder(context)
             .setMediaSourceFactory(DefaultMediaSourceFactory(context))
@@ -111,7 +111,7 @@ private fun TapsellPlusPreRollView(
     modifier: Modifier = Modifier,
     onUpdate: (PreRollContainer) -> Unit = {},
 ) {
-    val context = LocalContext.current as Activity
+    val context = LocalActivity.current as Activity
     AndroidView(
         modifier = modifier,
         factory = {
