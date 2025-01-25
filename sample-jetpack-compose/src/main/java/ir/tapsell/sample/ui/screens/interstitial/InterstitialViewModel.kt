@@ -39,7 +39,11 @@ class InterstitialViewModel : BaseViewModel() {
             })
     }
 
-    fun showAd(activity: Activity) {
+    fun showAd(activity: Activity?) {
+        if (activity == null ) {
+            log(TAG, "activity is null", Log.ERROR)
+            return
+        }
         if (responseId.isNullOrEmpty()) {
             log(TAG, "adId is empty", Log.ERROR)
             return
