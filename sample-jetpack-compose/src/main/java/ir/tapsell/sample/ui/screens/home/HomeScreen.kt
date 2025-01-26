@@ -2,6 +2,7 @@ package ir.tapsell.sample.ui.screens.home
 
 import android.app.Activity
 import android.util.Log
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,12 +36,12 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController()
 ) {
-    val context = LocalContext.current
+    val activity = LocalActivity.current
 
     LaunchedEffect(Unit) {
         Tapsell.setInitializationListener {
             Log.d(TAG, "onInitializationComplete")
-            Tapsell.setUserConsent(context as Activity, true)
+            Tapsell.setUserConsent(activity as Activity, true)
         }
     }
 
